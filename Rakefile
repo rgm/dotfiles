@@ -10,7 +10,7 @@ def link_task(file_name)
   end
 end
 
-ALL_TASKS = %w{ackrc gitconfig}
+ALL_TASKS = %w{ackrc gitconfig zshrc}
 ALL_TASKS.each {|fn| link_task(fn) }
 
 task :default => ALL_TASKS
