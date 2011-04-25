@@ -1,0 +1,24 @@
+[user]
+  name = Ryan McCuaig
+  email = rgm@diffengine.ca
+[color]
+  diff = auto
+  status = auto
+[alias]
+  st = status -sb
+  ci = commit -v
+  br = branch
+  co = checkout
+  df = diff
+  lg = log -p
+  staged = diff --cached
+  unstage = reset HEAD --
+  last = log -1 HEAD
+[git-tmbundle]
+  gitx-path = "/usr/local/bin/gitx "
+[github]
+  user = !cat ~/.github_user
+  token = !cat ~/.github_token
+[gist]
+  private = no
+  browse = yes
