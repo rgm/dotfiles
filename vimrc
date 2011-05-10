@@ -1,1 +1,1 @@
-set incsearch
+set hls ic incsearch
