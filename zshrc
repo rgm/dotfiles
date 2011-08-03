@@ -3,7 +3,7 @@ export ZSH=$HOME/.oh-my-zsh
 
 # Set to the name theme to load.
 # Look in ~/.oh-my-zsh/themes/
-export ZSH_THEME="rgm"
+export ZSH_THEME="steeef"
 
 # Set to this to use case-sensitive completion
 # export CASE_SENSITIVE="true"
@@ -14,6 +14,6 @@ export ZSH_THEME="rgm"
 # Uncomment following line if you want to disable colors in ls
 # export DISABLE_LS_COLORS="true"
 
-plugins=(github brew)
+plugins=(git textmate ruby thor rake brew rvm)
 
 source $ZSH/oh-my-zsh.sh
