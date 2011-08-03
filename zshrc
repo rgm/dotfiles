@@ -14,6 +14,6 @@ export ZSH_THEME="steeef"
 # Uncomment following line if you want to disable colors in ls
 # export DISABLE_LS_COLORS="true"
 
-plugins=(git textmate ruby thor rake brew rvm)
+plugins=(git osx textmate ruby thor rake brew rvm)
 
 source $ZSH/oh-my-zsh.sh
