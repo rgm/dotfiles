@@ -1,0 +1,13 @@
+* {
+	font-family: "Helvetica Neue", sans-serif;
+	font-size: 10pt;
+	line-height: 17pt;
+}
+
+h1 {
+	color: red;
+}
+
+body {
+	margin: 2em 8em;
+}
