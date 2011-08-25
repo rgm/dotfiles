@@ -1,6 +1,7 @@
 " courtesy http://stevelosh.com/blog/2010/09/coming-home-to-vim/
 set relativenumber
 set undofile
+set cursorline
 
 " suffer through the learning
 nnoremap <up> <nop>
@@ -21,3 +22,13 @@ nnoremap <leader>q gqip
 
 " turn off incsearch highlights
 nnoremap <leader><space> :noh<CR>
+
+set textwidth=79
+set formatoptions=qrn1
+set colorcolumn=85
+
+" alternate for exiting insert mode
+inoremap jj <esc>
+
+" split window commands
+nnoremap <leader>w <C-w>v<C-w>l
