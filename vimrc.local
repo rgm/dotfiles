@@ -19,3 +19,5 @@ nnoremap <leader>W :%s/\s\+$//<cr>:let @/\''<CR>
 " rewrap paragraphs
 nnoremap <leader>q gqip
 
+" turn off incsearch highlights
+nnoremap <leader><space> :noh<CR>

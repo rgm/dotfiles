@@ -1,6 +1,6 @@
 set gfn=Monaco:h9
 set noantialias
-set background=light
+set background=dark
 :colorscheme solarized
 set gcr=n:blinkon0
 
