@@ -11,3 +11,8 @@ h1 {
 body {
 	margin: 2em 8em;
 }
+
+code {
+	font-family: monospace;
+	background-color: #DDD;
+}
