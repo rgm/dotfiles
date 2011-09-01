@@ -32,3 +32,12 @@ inoremap jj <esc>
 
 " split window commands
 nnoremap <leader>w <C-w>v<C-w>l
+
+" save on lost focus
+au FocusLost * :wa
+
+" ack
+nnoremap <leader>a :Ack
+
+" hardwrap paragraph
+nnoremap <leader>q gqip

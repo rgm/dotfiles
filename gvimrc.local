@@ -3,4 +3,4 @@ set noantialias
 set background=dark
 :colorscheme solarized
 set gcr=n:blinkon0
-
+set linespace=3
