@@ -1,9 +1,12 @@
+# vim: syntax=gitconfig ft=gitconfig
 [user]
   name = Ryan McCuaig
   email = rgm@ryanmccuaig.net
 [color]
   diff = auto
   status = auto
+[core]
+  editor = mvim -f
 [alias]
   st = status -sb
   ci = commit -v
@@ -14,6 +17,8 @@
   staged = diff --cached
   unstage = reset HEAD --
   last = log -1 HEAD
+  lol = log --pretty=oneline --abbrev-commit --graph --decorate
+  added = diff --cached --name-only
 [git-tmbundle]
   gitx-path = "/usr/local/bin/gitx "
 [github]
@@ -28,3 +33,4 @@
   prompt = false
 [diff]
   tool = Kaleidoscope
+  wordRegex = [^[:space:]]
