@@ -41,3 +41,6 @@ nnoremap <leader>a :Ack
 
 " hardwrap paragraph
 nnoremap <leader>q gqip
+
+" allow hidden, unsaved buffers
+set hidden
