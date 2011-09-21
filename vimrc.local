@@ -28,7 +28,7 @@ set formatoptions=qrn1
 set colorcolumn=85
 
 " alternate for exiting insert mode
-inoremap jj <esc>
+" inoremap jj <esc>
 
 " split window commands
 nnoremap <leader>w <C-w>v<C-w>l
@@ -44,3 +44,7 @@ nnoremap <leader>q gqip
 
 " allow hidden, unsaved buffers
 set hidden
+
+" insert lines
+map <S-Enter> O<Esc>j
+map <CR> o<Esc>k
