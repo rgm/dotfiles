@@ -1,5 +1,4 @@
-set gfn=Monaco:h9
-set noantialias
+set gfn=AnonymousPro:h12
 set background=dark
 :colorscheme solarized
 set gcr=n:blinkon0
