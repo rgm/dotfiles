@@ -2,4 +2,4 @@ set gfn=AnonymousPro:h12
 set background=dark
 :colorscheme solarized
 set gcr=n:blinkon0
-set linespace=3
+set linespace=5
