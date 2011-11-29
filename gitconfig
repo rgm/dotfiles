@@ -8,17 +8,17 @@
 [core]
   editor = mvim -f
 [alias]
-  st = status -sb
-  ci = commit -v
-  br = branch
-  co = checkout
-  df = diff
-  lg = log -p
-  staged = diff --cached
+  st      = status -sb
+  ci      = commit -v
+  br      = branch
+  co      = checkout
+  df      = diff
+  lg      = log -p
+  staged  = diff --cached
   unstage = reset HEAD --
-  last = log -1 HEAD
-  lol = log --pretty=oneline --abbrev-commit --graph --decorate
-  added = diff --cached --name-only
+  last    = log -1 HEAD
+  l       = log --pretty=oneline --abbrev-commit --graph --decorate
+  added   = diff --cached --name-only
 [git-tmbundle]
   gitx-path = "/usr/local/bin/gitx "
 [github]
