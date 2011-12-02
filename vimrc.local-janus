@@ -1,0 +1,52 @@
+" courtesy http://stevelosh.com/blog/2010/09/coming-home-to-vim/
+set relativenumber
+set undofile
+set cursorline
+
+" suffer through the learning
+nnoremap <up> <nop>
+nnoremap <down> <nop>
+nnoremap <left> <nop>
+nnoremap <right> <nop>
+inoremap <up> <nop>
+inoremap <down> <nop>
+inoremap <left> <nop>
+inoremap <right> <nop>
+nnoremap j gj
+nnoremap k gk
+
+" clean whitespace
+nnoremap <leader>W :%s/\s\+$//<cr>:let @/\''<CR>
+" rewrap paragraphs
+nnoremap <leader>q gqip
+
+" turn off incsearch highlights
+nnoremap <leader><space> :noh<CR>
+
+set textwidth=79
+set formatoptions=qrn1
+set colorcolumn=85
+
+" alternate for exiting insert mode
+" inoremap jj <esc>
+
+" split window commands
+nnoremap <leader>w <C-w>v<C-w>l
+
+" save on lost focus
+au FocusLost * :wa
+
+" ack
+nnoremap <leader>a :Ack
+
+" hardwrap paragraph
+nnoremap <leader>q gqip
+
+" allow hidden, unsaved buffers
+set hidden
+
+" insert lines
+map <S-Enter> O<Esc>j
+map <CR> o<Esc>k
+
+:nnoremap <leader>m :silent !open -a Marked.app '%:p'<cr>
