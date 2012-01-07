@@ -1,3 +1,4 @@
 TM_GIT   = "/usr/local/bin/git"
 softTabs = true
 tabSize  = 2
+scopeAttributes = 'attr.save-on-deactivate'
