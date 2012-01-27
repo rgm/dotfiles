@@ -1,0 +1,6 @@
+[submodule "files/janus/vim-align"]
+	path = files/janus/vim-align
+	url = https://github.com/tsaleh/vim-align.git
+[submodule "files/janus/vim-rails"]
+	path = files/janus/vim-rails
+	url = https://github.com/tpope/vim-rails.git
