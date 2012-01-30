@@ -33,9 +33,6 @@ set colorcolumn=85
 " split window commands
 nnoremap <leader>w <C-w>v<C-w>l
 
-" save on lost focus
-au FocusLost * :wa
-
 " ack
 nnoremap <leader>a :Ack
 
