@@ -47,3 +47,5 @@ map <S-Enter> O<Esc>j
 map <CR> o<Esc>k
 
 :nnoremap <leader>m :silent !open -a Marked.app '%:p'<cr>
+
+nmap <silent> ,' :bprev<CR>
