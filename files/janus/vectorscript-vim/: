@@ -1,0 +1,13 @@
+if exists ("b:current_syntax")
+  finish
+endif
+
+syn keyword vsKeywords PROCEDURE FUNCTION BEGIN END
+syn keyword vsKeywords CONST VAR CASE FOR WHILE DO
+
+syn region vsString start="'" end="'" 
+
+let b:current_syntax = "vectorscript"
+
+hi def link vsKeywords Statement
+hi def link vsString Constant
