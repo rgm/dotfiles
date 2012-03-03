@@ -1,7 +1,8 @@
 set gfn=Monaco:h9
 set noantialias
 set background=dark
-:colorscheme solarized
+":colorscheme solarized
+:colorscheme molokai
 set gcr=n:blinkon0
 set linespace=5
 " save on lost focus

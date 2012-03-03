@@ -47,6 +47,9 @@ set hidden
 map <S-Enter> O<Esc>j
 map <CR> o<Esc>k
 
+" save all buffers
+nmap :W :wa<cr>
+
 nnoremap <leader>m :silent !open -a Marked.app '%:p'<cr>
 
 nmap <silent> ,' :bprev<CR>
