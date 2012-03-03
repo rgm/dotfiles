@@ -16,12 +16,13 @@ nnoremap j gj
 nnoremap k gk
 
 " clean whitespace
-nnoremap <leader>W :%s/\s\+$//<cr>:let @/\''<CR>
+"nnoremap <leader>W :%s/\s\+$//<cr>:let @/\''<CR> Old one
+nnoremap <leader>W :%s/\s\+$//<cr>:let @/=''<cr>
 " rewrap paragraphs
 nnoremap <leader>q gqip
 
 " turn off incsearch highlights
-nnoremap <leader><space> :noh<CR>
+nnoremap <silent><leader><space> :nohls<CR>
 
 set textwidth=79
 set formatoptions=qrn1
@@ -46,6 +47,20 @@ set hidden
 map <S-Enter> O<Esc>j
 map <CR> o<Esc>k
 
-:nnoremap <leader>m :silent !open -a Marked.app '%:p'<cr>
+nnoremap <leader>m :silent !open -a Marked.app '%:p'<cr>
 
 nmap <silent> ,' :bprev<CR>
+
+" alternate for escape
+inoremap jk <Esc>
+
+" window navigation
+nnoremap <C-h> <C-w>h
+nnoremap <C-j> <C-w>j
+nnoremap <C-k> <C-w>k
+nnoremap <C-l> <C-w>l
+
+" sane regexes
+nnoremap / /\v
+vnoremap / /\v
+
