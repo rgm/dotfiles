@@ -67,3 +67,5 @@ nnoremap <C-l> <C-w>l
 nnoremap / /\v
 vnoremap / /\v
 
+colorscheme solarized
+set background=dark
