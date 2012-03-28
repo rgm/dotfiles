@@ -7,6 +7,7 @@
   status = auto
 [core]
   editor = mvim -f
+  excludesfile = /Users/rgm/.gitignore
 [alias]
   st      = status -sb
   ci      = commit -v
