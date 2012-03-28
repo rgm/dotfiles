@@ -5,7 +5,7 @@ endif
 syn keyword vsKeywords PROCEDURE FUNCTION BEGIN END
 syn keyword vsKeywords CONST VAR CASE FOR WHILE DO OF
 syn keyword vsKeywords IF THEN ELSE
-syn keyword vsType BOOLEAN STRING HANDLE REAL LONGINT POINT
+syn keyword vsType BOOLEAN STRING HANDLE REAL LONGINT POINT INTEGER
 syn keyword vsBooleans TRUE FALSE
 syn keyword vsCompilerDirective contained $INCLUDE $DEBUG
 
