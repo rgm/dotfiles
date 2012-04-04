@@ -6,7 +6,7 @@
   diff = auto
   status = auto
 [core]
-  editor = mvim -f
+	autocrlf = input
   excludesfile = /Users/rgm/.gitignore
 [alias]
   st      = status -sb
