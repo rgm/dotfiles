@@ -52,8 +52,6 @@ nmap :W :wa<cr>
 
 nnoremap <leader>m :silent !open -a Marked.app '%:p'<cr>
 
-nmap <silent> ,' :bprev<CR>
-
 " alternate for escape
 inoremap jk <Esc>
 
@@ -69,3 +67,10 @@ vnoremap / /\v
 
 colorscheme solarized
 set background=dark
+
+" sane split panes
+set splitbelow
+set splitright
+
+set tildeop " make ~ useful as ~4w
+
