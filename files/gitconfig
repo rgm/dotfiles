@@ -21,6 +21,14 @@
   last    = log -1 HEAD
   l       = log --pretty=oneline --abbrev-commit --graph --decorate
   added   = diff --cached --name-only
+	switch = !legit switch \"$@\"
+	branches = !legit branches
+	sprout = !legit sprout \"$@\"
+	unpublish = !legit unpublish \"$@\"
+	harvest = !legit harvest \"$@\"
+	sync = !legit sync \"$@\"
+	publish = !legit publish \"$@\"
+	graft = !legit graft \"$@\"
 [git-tmbundle]
   gitx-path = "/usr/local/bin/gitx "
 [github]
