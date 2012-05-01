@@ -1,5 +1,5 @@
 def link_task(file_name)
-  src = ".dotfiles/files/#{file_name}"
+  src = "/Users/rgm/Dropbox/projects/dotfiles/dotfiles/files/#{file_name}"
   dst = File.expand_path("~/.#{file_name}")
   desc "Relink .#{file_name} to #{dst}"
   task file_name.intern do
