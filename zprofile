@@ -17,3 +17,8 @@ zstyle :compinstall filename '/Users/rgm/.zprofile'
 autoload -Uz compinit
 compinit
 # End of lines added by compinstall
+
+alias g="git status"
+alias ls="gls --color --classify --ignore-backups"
+alias l="ls -l"
+alias ll="ls -la"
