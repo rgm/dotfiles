@@ -22,12 +22,19 @@ set undolevels=1000
 set visualbell
 set winwidth=99
 
-filetype off
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
-Plugin 'VundleVim/Vundle.vim'
-Plugin 'tpope/vim-fugitive'
-Plugin 'rgm/vectorscript-vim'
-call vundle#end()
-filetype plugin indent on
-syntax on
+call plug#begin('~/.vim/plugged')
+Plug 'tpope/vim-fugitive'
+Plug 'rgm/vectorscript-vim'
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plug 'junegunn/fzf.vim'
+Plug 'pR0Ps/molokai-dark'
+call plug#end()
+
+" generally matches spacemacs
+let mapleader=" "
+nnoremap <leader>ff :Files<CR>
+nnoremap <leader>fr :History<CR>
+nnoremap <leader>pf :GFiles<CR>
+nnoremap <leader>bb :Buffers<CR>
+
+colo molokai-dark
