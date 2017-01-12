@@ -28,6 +28,7 @@ Plug 'rgm/vectorscript-vim'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 Plug 'pR0Ps/molokai-dark'
+Plug 'tpope/vim-commentary'
 call plug#end()
 
 " generally matches spacemacs
