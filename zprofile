@@ -1,3 +1,5 @@
+fpath=(/usr/local/share/zsh-completions $fpath) # https://github.com/zsh-users/zsh-completions
+
 source /usr/local/opt/chruby/share/chruby/chruby.sh
 source /usr/local/share/chruby/auto.sh
 eval "$(direnv hook zsh)"
