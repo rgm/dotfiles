@@ -1,6 +1,16 @@
 fpath=(/usr/local/share/zsh-completions $fpath) # https://github.com/zsh-users/zsh-completions
 cdpath=($HOME/Projects/stage3 $HOME/Projects/resolve/github $HOME/Projects)
 
+HISTFILE=~/.histfile
+HISTSIZE=10000
+SAVEHIST=100000
+setopt EXTENDED_HISTORY
+setopt INC_APPEND_HISTORY
+setopt HIST_EXPIRE_DUPS_FIRST
+setopt HIST_SAVE_NO_DUPS
+setopt HIST_IGNORE_DUPS
+setopt SHARE_HISTORY
+
 source /usr/local/opt/chruby/share/chruby/chruby.sh
 source /usr/local/share/chruby/auto.sh
 eval "$(direnv hook zsh)"
