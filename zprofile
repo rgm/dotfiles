@@ -35,3 +35,5 @@ alias g="git status"
 alias ls="gls --color --classify --ignore-backups"
 alias l="ls -l"
 alias ll="ls -la"
+
+bindkey -e
