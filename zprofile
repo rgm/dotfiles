@@ -1,4 +1,5 @@
 fpath=(/usr/local/share/zsh-completions $fpath) # https://github.com/zsh-users/zsh-completions
+cdpath=($HOME/Projects/stage3 $HOME/Projects/resolve/github $HOME/Projects)
 
 source /usr/local/opt/chruby/share/chruby/chruby.sh
 source /usr/local/share/chruby/auto.sh
