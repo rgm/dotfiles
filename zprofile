@@ -44,9 +44,12 @@ alias g="git status"
 alias ls="gls --color --classify --ignore-backups"
 alias l="ls -l"
 alias ll="ls -la"
+
 # command line editing
 autoload -z edit-command-line
 zle -N edit-command-line
 bindkey "^X^E" edit-command-line
 
 bindkey -e
+
+[ -f /usr/local/etc/profile.d/autojump.sh ] && . /usr/local/etc/profile.d/autojump.sh
