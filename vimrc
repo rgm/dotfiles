@@ -43,3 +43,18 @@ nnoremap <leader>pf :GFiles<CR>
 nnoremap <leader>bb :Buffers<CR>
 
 colo molokai-dark
+
+" toggle between file and its alternate
+nnoremap <leader><leader> <c-^>
+
+" via http://mixandgo.com/blog/vim-config-for-rails-ninjas
+au BufWritePost .vimrc so $MYVIMRC
+nnoremap <leader>V :e $MYVIMRC<cr>
+
+nnoremap <silent><leader>\ :nohls<CR>
+
+" open files in directory of current file
+" https://github.com/garybernhardt/dotfiles/blob/master/.vimrc#L175
+cnoremap <expr> %% expand('%:h').'/'
+map <leader>e :edit %%
+map <leader>v :view %%
