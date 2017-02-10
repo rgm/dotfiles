@@ -23,12 +23,16 @@ set visualbell
 set winwidth=99
 
 call plug#begin('~/.vim/plugged')
-Plug 'tpope/vim-fugitive'
-Plug 'rgm/vectorscript-vim'
+Plug 'godlygeek/tabular'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 Plug 'pR0Ps/molokai-dark'
+Plug 'rgm/vectorscript-vim'
+Plug 'rizzatti/dash.vim'
 Plug 'tpope/vim-commentary'
+Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-surround'
+Plug 'tpope/vim-unimpaired'
 call plug#end()
 
 " generally matches spacemacs
