@@ -54,3 +54,6 @@ bindkey -e
 
 [ -f /usr/local/etc/profile.d/autojump.sh ] && . /usr/local/etc/profile.d/autojump.sh
 . $HOME/.zsh/plugins/bd/bd.zsh
+
+autoload -U promptinit; promptinit
+prompt pure
