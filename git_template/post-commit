@@ -1,0 +1,22 @@
+#!/bin/sh
+
+# git post-commit hook to snap a photo and sample your current location
+
+SNAPS_FOLDER="$HOME/Projects/gitshots"
+
+# extended from https://gist.github.com/kytrinyx/4489037
+#
+# you will need these binaries on $PATH:
+#
+# imagesnap ->
+# brew install imagesnap
+#
+# whereami ->
+# a developer-signed whereami binary: https://github.com/robmathers/WhereAmI or from http://apple.stackexchange.com/questions/60152/is-there-a-way-to-access-a-macs-geolocation-from-terminal-mountain-lion/76388#76388 you can pull the binary at http://d.pr/f/C2qV
+
+EPOCH=`date "+%s"`
+ROOT=`basename $(git rev-parse --show-toplevel)`
+SHA1=`git log --pretty=format:'%h' --abbrev-commit -1`
+DST="${EPOCH}-${ROOT}-${SHA1}"
+
+imagesnap -q "$SNAPS_FOLDER/$DST.jpg" && whereami > "$SNAPS_FOLDER/$DST.txt" & 

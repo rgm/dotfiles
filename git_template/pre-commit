@@ -1,0 +1,12 @@
+#!/bin/sh
+
+function onoe {
+  echo "\n\033[1;31m$1\033[0m"
+}
+
+# fail on trailing whitespace
+if [[ `git diff --cached --check ` ]]; then
+  onoe "Commit failed"
+  git diff --cached --check
+  exit 1
+fi
