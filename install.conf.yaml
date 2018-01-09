@@ -8,4 +8,7 @@
     ~/.vimrc: vimrc
     ~/.zprofile: zprofile
 
+- brew:
+    - git
+
 # set shiftwidth=2 tabstop=2 expandtab
