@@ -128,3 +128,5 @@
   clean = git lfs clean %f
   smudge = git lfs smudge %f
   required = true
+[commit]
+	template = /Users/rgm/.git_commit_template

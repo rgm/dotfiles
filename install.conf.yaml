@@ -8,6 +8,7 @@
     ~/.vimrc: vimrc
     ~/.zprofile: zprofile
     ~/.gitconfig: gitconfig
+    ~/.git_commit_template: git_commit_template
 
 - brew:
     - git
