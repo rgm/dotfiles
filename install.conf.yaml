@@ -1,0 +1,11 @@
+- defaults:
+    link:
+      relink: true
+
+- link:
+    ~/.ctags: ctags
+    ~/.vim: vim
+    ~/.vimrc: vimrc
+    ~/.zprofile: zprofile
+
+# set shiftwidth=2 tabstop=2 expandtab
