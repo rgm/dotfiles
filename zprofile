@@ -16,10 +16,12 @@ setopt DVORAK
 # chruby
 source /usr/local/opt/chruby/share/chruby/chruby.sh
 source /usr/local/share/chruby/auto.sh
+chruby 2.4
 
 # nvm
 # export NVM_DIR="/Users/rgm/.nvm"
 # [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
+# nvm use stable
 
 # direnv
 eval "$(direnv hook zsh)"
@@ -44,11 +46,14 @@ alias g="git status"
 alias ls="gls --color --classify --ignore-backups"
 alias l="ls -l"
 alias ll="ls -la"
+alias em="emacsclient"
 
 # command line editing
 autoload -z edit-command-line
 zle -N edit-command-line
 bindkey "^X^E" edit-command-line
+bindkey "^XE" edit-command-line
+# bindkey -M vicmd v edit-command-line
 
 bindkey -e
 
@@ -57,3 +62,15 @@ bindkey -e
 
 autoload -U promptinit; promptinit
 prompt pure
+
+export PATH=$HOME/bin:$PATH
+
+function dt () {
+  echo -e "\033]50;SetProfile=light\a"; export ITERM_PROFILE=light;
+}
+
+function nt () {
+  echo -e "\033]50;SetProfile=dark\a"; export ITERM_PROFILE=dark;
+}
+
+# eval $(op signin my)
