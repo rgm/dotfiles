@@ -1,62 +1,117 @@
+" all below in vim-sensible
 set autoread " kill git 'file has changed' prompts
-set backspace=indent,eol,start
+" set backspace=indent,eol,start
 set cursorline
 set encoding=utf-8
 set expandtab
-set hidden
 set history=10000
+set hidden " switch away from unsaved buffers
 set hlsearch
-set ignorecase smartcase
 set incsearch
+set ignorecase smartcase
 set infercase
 set nobackup
-set nocompatible
 set noswapfile
-set ruler
+" set ruler
 set showcmd
 set splitbelow
 set splitright
 set tabstop=2 shiftwidth=2 softtabstop=2
 set title
-set undolevels=1000
-set visualbell
-set winwidth=99
+" set undolevels=1000
+" set visualbell
+set winwidth=90
+"
+" set backupdir=./.backup,.,/tmp
+" set directory=.,./.backup,/tmp
 
 call plug#begin('~/.vim/plugged')
+
+Plug 'tpope/vim-sensible'
+
+Plug 'sheerun/vim-polyglot'
+" Plug 'Konfekt/FastFold'
+" Plug 'flazz/vim-colorschemes'
+Plug 'pR0Ps/molokai-dark'
+" Plug 'scrooloose/nerdtree'
+Plug 'justinmk/vim-sneak'
+Plug 'bling/vim-airline'
+Plug 'majutsushi/tagbar'
+
+Plug 'MarcWeber/vim-addon-mw-utils'
+Plug 'garbas/vim-snipmate'
+Plug 'tomtom/tlib_vim'
+Plug 'honza/vim-snippets'
+
+Plug '~/Projects/splitjoin.vim'
+Plug 'PeterRincker/vim-argumentative'
+" Plug 'StanAngeloff/php.vim', { 'for': 'php' }
+Plug 'airblade/vim-gitgutter'
+Plug 'albertorestifo/github.vim' " colorscheme
+" Plug 'benmills/vimux'
+Plug 'gcmt/wildfire.vim'
 Plug 'godlygeek/tabular'
+Plug 'guns/vim-sexp'
+" Plug 'keith/swift.vim', { 'for': 'swift' }
+" Plug 'gabrielelana/vim-markdown'
+Plug 'cakebaker/scss-syntax.vim'
+Plug 'eapache/rainbow_parentheses.vim'
+" Plug 'leafgarland/typescript-vim'
+" Plug 'Quramy/tsuquyomi'
+Plug 'mattn/emmet-vim'
+Plug 'pangloss/vim-javascript'
+Plug 'burnettk/vim-angular'
+Plug 'ternjs/tern_for_vim'
+Plug 'rayburgemeestre/phpfolding.vim'
+Plug 'rgm/vectorscript-vim'
+Plug 'rizzatti/dash.vim'
+Plug 'tpope/vim-sexp-mappings-for-regular-people'
+" Plug 'venantius/vim-cljfmt'
+" Plug 'vim-syntastic/syntastic'
+Plug 'w0rp/ale'
+" Plug 'SevereOverfl0w/clojure-check', {'do': './install'}
+Plug 'guns/vim-clojure-highlight'
+Plug 'guns/vim-clojure-static'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
-Plug 'vim-syntastic/syntastic'
-Plug 'pR0Ps/molokai-dark'
-Plug 'rgm/vectorscript-vim'
-Plug 'airblade/vim-gitgutter'
-Plug 'gcmt/wildfire.vim'
-Plug 'pangloss/vim-javascript'
-Plug 'rizzatti/dash.vim'
-Plug 'AndrewRadev/splitjoin.vim'
+Plug 'mileszs/ack.vim'
+Plug 'tpope/vim-abolish'
+Plug 'tpope/vim-classpath'
 Plug 'tpope/vim-commentary'
+Plug 'tpope/vim-endwise'
+Plug 'tpope/vim-fireplace' ", { 'for': 'clojure' }
+" Plug 'SevereOverfl0w/vim-fireplace'
 Plug 'tpope/vim-fugitive'
-Plug 'mattn/emmet-vim'
-Plug 'tpope/vim-surround'
-Plug 'tpope/vim-unimpaired'
+Plug 'tpope/vim-rhubarb'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-salve'
-Plug 'tpope/vim-sexp-mappings-for-regular-people'
-Plug 'tpope/vim-fireplace'
-" Plug 'guns/vim-sexp'
-Plug 'vim-scripts/paredit.vim'
-Plug 'guns/vim-clojure-static'
-Plug 'kien/rainbow_parentheses.vim'
+Plug 'tpope/vim-sleuth'
+Plug 'tpope/vim-speeddating'
+Plug 'tpope/vim-dispatch'
+Plug 'tpope/vim-rails'
+Plug 'tpope/vim-surround'
+Plug 'tpope/vim-unimpaired'
+Plug 'tpope/vim-projectionist'
+" Plug 'vim-scripts/paredit.vim', { 'for': 'clojure' }
+Plug 'tweekmonster/django-plus.vim'
+Plug 'christoomey/vim-conflicted'
+
+Plug 'chrisbra/nrrwrgn'
+Plug 'jceb/vim-orgmode'
+
 call plug#end()
+
+" colo molokai-dark
+" colo github
 
 " generally matches spacemacs
 let mapleader=" "
 nnoremap <leader>ff :Files<CR>
 nnoremap <leader>fr :History<CR>
 nnoremap <leader>pf :GFiles<CR>
+nnoremap <leader>gf :GFiles?<CR>
 nnoremap <leader>bb :Buffers<CR>
-
-colo molokai-dark
+nnoremap <leader>mm :Marks<CR>
 
 " toggle between file and its alternate
 nnoremap <leader><leader> <c-^>
@@ -88,7 +143,91 @@ nnoremap <silent> <leader>W :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar>:nohl
 " kill other windows with <leader>o
 nnoremap <leader>o <C-W>o<CR>
 
-au BufEnter *.clj RainbowParenthesesActivate
-au Syntax clojure RainbowParenthesesLoadRound
-au Syntax clojure RainbowParenthesesLoadSquare
-au Syntax clojure RainbowParenthesesLoadBraces
+" ag.vim -> ack so we can go through quickfix instead of fzf
+let g:ackprg = 'ag --vimgrep --smart-case'
+
+" move through quickfix list
+nnoremap [ :cp<CR>
+nnoremap ] :cn<CR>
+
+let g:dash_map = {
+      \ 'clojure' : ['cljs', 'clojure', 'goog']
+      \ }
+
+command! Figapp :Piggieback! (figwheel-sidecar.repl-api/repl-env "app")
+command! Figdevcard :Piggieback! (figwheel-sidecar.repl-api/repl-env "devcards")
+command! Figchestnut :Piggieback (figwheel-sidecar.system/repl-env (:figwheel-system reloaded.repl/system) nil)
+
+au VimEnter * RainbowParenthesesToggle
+au Syntax * RainbowParenthesesLoadRound
+au Syntax * RainbowParenthesesLoadSquare
+au Syntax * RainbowParenthesesLoadBraces
+
+let maplocalleader=","
+
+" clojure indentation
+" let g:clojure_maxlines = 200
+let g:clojure_align_multiline_strings = 1
+
+" color switch on iterm profile
+let iterm_profile = $ITERM_PROFILE
+if iterm_profile == "dark"
+  colo molokai-dark
+  " colo molokai
+  hi SignColumn ctermbg=black
+  hi GitGutterAdd ctermbg=black ctermfg=green
+  hi GitGutterChange ctermbg=black ctermfg=blue
+  hi GitGutterDelete ctermbg=black ctermfg=red
+  hi GitGutterChangeDelete ctermbg=black ctermfg=magenta
+
+  hi DiffAdd      ctermbg=22 ctermfg=15
+  hi DiffChange   ctermbg=17 ctermfg=15
+  hi DiffText     ctermbg=21 ctermfg=15
+  hi DiffDelete   ctermbg=52 ctermfg=15
+else
+  colo github
+  " https://upload.wikimedia.org/wikipedia/commons/1/15/Xterm_256color_chart.svg
+  highlight SignColumn ctermbg=white
+  " highlight GitGutterAdd ctermfg=green
+  " highlight GitGutterChange ctermfg=blue
+  " highlight GitGutterDelete ctermfg=red
+  " highlight GitGutterChangeDelete ctermfg=magenta
+  highlight Folded ctermbg=255 ctermfg=17
+  highlight CursorLine ctermbg=193
+endif
+
+" always show ale/gitgutter
+if exists('&signcolumn')  " Vim 7.4.2201
+  set signcolumn=yes
+else
+  let g:gitgutter_sign_column_always = 1
+endif
+let g:ale_sign_column_always = 1
+
+let g:gitgutter_sign_added = '∙'
+let g:gitgutter_sign_modified = '∙'
+let g:gitgutter_sign_removed = '∙'
+let g:gitgutter_sign_modified_removed = '∙'
+let g:ale_sign_warning = '▲'
+let g:ale_sign_error = '✗'
+
+let g:ale_linters = {'html': ['htmlhint', 'tidy']}
+
+" see https://github.com/tpope/vim-fireplace/pull/301/files
+" let g:fireplace_pprint_fn = 'clojure.pprint/pprint'
+" let g:fireplace_pprint_fn = 'cider.nrepl.middleware.pprint/fipp-pprint'
+" let g:fireplace_pprint_fn = 'cider.nrepl.middleware.pprint/puget-pprint'
+"
+" set foldmethod=syntax
+set diffopt+=vertical
+
+" command Greview :Git! diff --staged
+nnoremap <leader>gr :Greview<cr>
+
+nnoremap <LocalLeader>f :set foldmethod=syntax<CR>
+
+" wrap diff always
+" https://stackoverflow.com/a/17329864/53790
+autocmd FilterWritePre * if &diff | setlocal wrap< | endif
+
+autocmd FileType terraform setlocal commentstring=#\ %s
