@@ -74,3 +74,5 @@ function nt () {
 }
 
 # eval $(op signin my)
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
