@@ -171,7 +171,17 @@ let g:clojure_align_multiline_strings = 1
 
 " color switch on iterm profile
 let iterm_profile = $ITERM_PROFILE
-if iterm_profile == "dark"
+if iterm_profile == "light"
+  colo github
+  " https://upload.wikimedia.org/wikipedia/commons/1/15/Xterm_256color_chart.svg
+  highlight SignColumn ctermbg=white
+  " highlight GitGutterAdd ctermfg=green
+  " highlight GitGutterChange ctermfg=blue
+  " highlight GitGutterDelete ctermfg=red
+  " highlight GitGutterChangeDelete ctermfg=magenta
+  highlight Folded ctermbg=255 ctermfg=17
+  highlight CursorLine ctermbg=193
+else
   colo molokai-dark
   " colo molokai
   hi SignColumn ctermbg=black
@@ -184,16 +194,6 @@ if iterm_profile == "dark"
   hi DiffChange   ctermbg=17 ctermfg=15
   hi DiffText     ctermbg=21 ctermfg=15
   hi DiffDelete   ctermbg=52 ctermfg=15
-else
-  colo github
-  " https://upload.wikimedia.org/wikipedia/commons/1/15/Xterm_256color_chart.svg
-  highlight SignColumn ctermbg=white
-  " highlight GitGutterAdd ctermfg=green
-  " highlight GitGutterChange ctermfg=blue
-  " highlight GitGutterDelete ctermfg=red
-  " highlight GitGutterChangeDelete ctermfg=magenta
-  highlight Folded ctermbg=255 ctermfg=17
-  highlight CursorLine ctermbg=193
 endif
 
 " always show ale/gitgutter
