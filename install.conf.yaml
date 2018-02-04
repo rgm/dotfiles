@@ -12,6 +12,7 @@
 
 - brew:
     - chruby
+    - ruby-install
     - ctags
     - git
     - vim
