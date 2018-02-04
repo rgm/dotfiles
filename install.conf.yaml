@@ -10,6 +10,7 @@
     ~/.zsh: zsh
     ~/.gitconfig: gitconfig
     ~/.git_commit_template: git_commit_template
+    ~/.lein: lein
 
 - shell:
     - ln -s ~/.zsh/plugins/pure_prompt/pure.zsh /usr/local/share/zsh/site-functions/prompt_pure_setup
