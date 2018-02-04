@@ -16,7 +16,7 @@ setopt DVORAK
 # chruby
 source /usr/local/opt/chruby/share/chruby/chruby.sh
 source /usr/local/share/chruby/auto.sh
-chruby 2.4
+chruby 2.5
 
 # nvm
 # export NVM_DIR="/Users/rgm/.nvm"
