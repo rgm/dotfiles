@@ -13,8 +13,8 @@
     ~/.lein: lein
 
 - shell:
-    - ln -s ~/.zsh/plugins/pure_prompt/pure.zsh /usr/local/share/zsh/site-functions/prompt_pure_setup
-    - ln -s ~/.zsh/plugins/pure_prompt/async.zsh /usr/local/share/zsh/site-functions/async
+    - ln -F -s ~/.zsh/plugins/pure_prompt/pure.zsh /usr/local/share/zsh/site-functions/prompt_pure_setup
+    - ln -F -s ~/.zsh/plugins/pure_prompt/async.zsh /usr/local/share/zsh/site-functions/async
 
 - brew:
     - coreutils
