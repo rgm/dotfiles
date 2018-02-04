@@ -11,6 +11,11 @@
     ~/.git_commit_template: git_commit_template
 
 - brew:
+    - chruby
+    - ctags
     - git
+    - vim
+    - zsh
+    - zsh-completions
 
 # set shiftwidth=2 tabstop=2 expandtab
