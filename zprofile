@@ -57,7 +57,7 @@ bindkey "^XE" edit-command-line
 
 bindkey -e
 
-[ -f /usr/local/etc/profile.d/autojump.sh ] && . /usr/local/etc/profile.d/autojump.sh
+[ -f /usr/local/etc/profile.d/z.sh ] && . /usr/local/etc/profile.d/z.sh
 . $HOME/.zsh/plugins/bd/bd.zsh
 
 autoload -U promptinit; promptinit
