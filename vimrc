@@ -53,7 +53,7 @@ Plug 'guns/vim-sexp'
 " Plug 'keith/swift.vim', { 'for': 'swift' }
 " Plug 'gabrielelana/vim-markdown'
 Plug 'cakebaker/scss-syntax.vim'
-Plug 'eapache/rainbow_parentheses.vim'
+Plug 'luochen1990/rainbow'
 " Plug 'leafgarland/typescript-vim'
 " Plug 'Quramy/tsuquyomi'
 Plug 'mattn/emmet-vim'
@@ -149,6 +149,8 @@ nnoremap <leader>o <C-W>o<CR>
 " ag.vim -> ack so we can go through quickfix instead of fzf
 let g:ackprg = 'ag --vimgrep --smart-case'
 
+let g:rainbow_active = 1
+
 " move through quickfix list
 nnoremap [ :cp<CR>
 nnoremap ] :cn<CR>
@@ -160,11 +162,6 @@ let g:dash_map = {
 command! Figapp :Piggieback! (figwheel-sidecar.repl-api/repl-env "app")
 command! Figdevcard :Piggieback! (figwheel-sidecar.repl-api/repl-env "devcards")
 command! Figchestnut :Piggieback (figwheel-sidecar.system/repl-env (:figwheel-system reloaded.repl/system) nil)
-
-au VimEnter * RainbowParenthesesToggle
-au Syntax * RainbowParenthesesLoadRound
-au Syntax * RainbowParenthesesLoadSquare
-au Syntax * RainbowParenthesesLoadBraces
 
 let maplocalleader=","
 
@@ -242,3 +239,5 @@ nnoremap <LocalLeader>f :set foldmethod=syntax<CR>
 autocmd FilterWritePre * if &diff | setlocal wrap< | endif
 
 autocmd FileType terraform setlocal commentstring=#\ %s
+
+let g:rainbow_conf = {'ctermfgs': ['Blue', 'Green', 'DarkMagenta', 'DarkRed']}
