@@ -32,7 +32,6 @@ Plug 'tpope/vim-sensible'
 Plug 'sheerun/vim-polyglot'
 " Plug 'Konfekt/FastFold'
 " Plug 'flazz/vim-colorschemes'
-Plug 'pR0Ps/molokai-dark'
 " Plug 'scrooloose/nerdtree'
 Plug 'justinmk/vim-sneak'
 Plug 'bling/vim-airline'
@@ -47,7 +46,6 @@ Plug '~/Projects/splitjoin.vim'
 Plug 'PeterRincker/vim-argumentative'
 " Plug 'StanAngeloff/php.vim', { 'for': 'php' }
 Plug 'airblade/vim-gitgutter'
-Plug 'albertorestifo/github.vim' " colorscheme
 " Plug 'benmills/vimux'
 Plug 'gcmt/wildfire.vim'
 Plug 'godlygeek/tabular'
@@ -98,6 +96,11 @@ Plug 'christoomey/vim-conflicted'
 
 Plug 'chrisbra/nrrwrgn'
 Plug 'jceb/vim-orgmode'
+
+ " colorschemes
+Plug 'lifepillar/vim-solarized8'
+Plug 'albertorestifo/github.vim'
+Plug 'pR0Ps/molokai-dark'
 
 call plug#end()
 
@@ -181,6 +184,14 @@ if iterm_profile == "light"
   " highlight GitGutterChangeDelete ctermfg=magenta
   highlight Folded ctermbg=255 ctermfg=17
   highlight CursorLine ctermbg=193
+elseif iterm_profile == "solarized-light"
+  let g:solarized_use16 = 1
+  set background=light
+  colo solarized8
+elseif iterm_profile == "solarized-dark"
+  let g:solarized_use16 = 1
+  set background=dark
+  colo solarized8
 else
   colo molokai-dark
   " colo molokai

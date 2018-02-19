@@ -89,6 +89,14 @@ function nt () {
   echo -e "\033]50;SetProfile=dark\a"; export ITERM_PROFILE=dark;
 }
 
+function sl () {
+  echo -e "\033]50;SetProfile=solarized-light\a"; export ITERM_PROFILE=solarized-light;
+}
+
+function sd () {
+  echo -e "\033]50;SetProfile=solarized-dark\a"; export ITERM_PROFILE=solarized-dark;
+}
+
 # eval $(op signin my)
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
