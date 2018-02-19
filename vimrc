@@ -241,3 +241,7 @@ autocmd FilterWritePre * if &diff | setlocal wrap< | endif
 autocmd FileType terraform setlocal commentstring=#\ %s
 
 let g:rainbow_conf = {'ctermfgs': ['Blue', 'Green', 'DarkMagenta', 'DarkRed']}
+
+let g:ale_fixers = {}
+let g:ale_fixers['javascript'] = ['prettier']
+let g:ale_fix_on_save = 1
