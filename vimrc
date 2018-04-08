@@ -36,6 +36,7 @@ Plug 'sheerun/vim-polyglot'
 Plug 'justinmk/vim-sneak'
 Plug 'bling/vim-airline'
 Plug 'majutsushi/tagbar'
+Plug 'ludovicchabant/vim-gutentags'
 
 Plug 'MarcWeber/vim-addon-mw-utils'
 Plug 'garbas/vim-snipmate'
@@ -50,12 +51,14 @@ Plug 'airblade/vim-gitgutter'
 Plug 'gcmt/wildfire.vim'
 Plug 'godlygeek/tabular'
 Plug 'guns/vim-sexp'
+" Plug 'bhurlow/vim-parinfer'
 " Plug 'keith/swift.vim', { 'for': 'swift' }
 " Plug 'gabrielelana/vim-markdown'
 Plug 'cakebaker/scss-syntax.vim'
 Plug 'luochen1990/rainbow'
 " Plug 'leafgarland/typescript-vim'
 " Plug 'Quramy/tsuquyomi'
+" Plug 'jsx/jsx.vim'
 Plug 'mattn/emmet-vim'
 Plug 'pangloss/vim-javascript'
 Plug 'burnettk/vim-angular'
@@ -112,9 +115,15 @@ let mapleader=" "
 nnoremap <leader>ff :Files<CR>
 nnoremap <leader>fr :History<CR>
 nnoremap <leader>pf :GFiles<CR>
-nnoremap <leader>gf :GFiles?<CR>
+nnoremap <leader>pF :GFiles?<CR>
 nnoremap <leader>bb :Buffers<CR>
 nnoremap <leader>mm :Marks<CR>
+nnoremap <leader>c :BCommits<CR>
+nnoremap <leader>C :Commits<CR>
+nnoremap <leader>t :BTags<CR>
+nnoremap <leader>T :Tags<CR>
+
+nnoremap <leader>gs :Gstatus<CR>
 
 " toggle between file and its alternate
 nnoremap <leader><leader> <c-^>
@@ -147,7 +156,8 @@ nnoremap <silent> <leader>W :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar>:nohl
 nnoremap <leader>o <C-W>o<CR>
 
 " ag.vim -> ack so we can go through quickfix instead of fzf
-let g:ackprg = 'ag --vimgrep --smart-case'
+" let g:ackprg = 'ag --vimgrep --smart-case'
+let g:ackprg = 'ag --vimgrep --no-heading'
 
 let g:rainbow_active = 1
 
@@ -216,10 +226,20 @@ let g:gitgutter_sign_added = '∙'
 let g:gitgutter_sign_modified = '∙'
 let g:gitgutter_sign_removed = '∙'
 let g:gitgutter_sign_modified_removed = '∙'
+
 let g:ale_sign_warning = '▲'
 let g:ale_sign_error = '✗'
 
-let g:ale_linters = {'html': ['htmlhint', 'tidy']}
+let g:ale_linters = {
+      \ 'html': ['htmlhint', 'tidy'],
+      \ 'javascript': ['eslint'],
+      \}
+
+let g:ale_fixers = {}
+let g:ale_fixers['javascript'] = ['prettier']
+let g:ale_fixers['css'] = ['prettier']
+let g:ale_fixers['scss'] = ['prettier']
+let g:ale_fix_on_save = 1
 
 " see https://github.com/tpope/vim-fireplace/pull/301/files
 " let g:fireplace_pprint_fn = 'clojure.pprint/pprint'
@@ -242,6 +262,15 @@ autocmd FileType terraform setlocal commentstring=#\ %s
 
 let g:rainbow_conf = {'ctermfgs': ['Blue', 'Green', 'DarkMagenta', 'DarkRed']}
 
-let g:ale_fixers = {}
-let g:ale_fixers['javascript'] = ['prettier']
-let g:ale_fix_on_save = 1
+" https://www.hillelwayne.com/post/vim-macro-trickz/
+nnoremap Q @@
+set lazyredraw
+nnoremap Y y$
+
+let g:sneak#s_next = 1
+let g:sneak#label = 1
+
+nnoremap <silent> <F9> :TagbarToggle<CR>
+let g:tagbar_left = 1
+let g:tagbar_autofocus = 1
+let g:tagbar_compact = 1
