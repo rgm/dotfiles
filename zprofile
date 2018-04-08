@@ -42,11 +42,17 @@ autoload -Uz compinit
 compinit
 # End of lines added by compinstall
 
+# source highlighting
+export LESSOPEN="| /usr/local/bin/src-hilite-lesspipe.sh %s"
+export LESS=" -R "
+alias less='less -m -g -i -J --underline-special --SILENT'
+
 alias g="git status"
-alias ls="gls --color --classify --ignore-backups"
+alias ls="gls --color --classify --ignore-backups -v"
 alias l="ls -l"
 alias ll="ls -la"
 alias em="emacsclient"
+alias t="tree -I node_modules"
 
 # command line editing
 autoload -z edit-command-line
