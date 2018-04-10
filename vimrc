@@ -99,6 +99,7 @@ Plug 'christoomey/vim-conflicted'
 
 Plug 'chrisbra/nrrwrgn'
 Plug 'jceb/vim-orgmode'
+Plug 'mbbill/undotree'
 
  " colorschemes
 Plug 'lifepillar/vim-solarized8'
