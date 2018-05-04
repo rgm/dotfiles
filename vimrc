@@ -36,7 +36,7 @@ Plug 'sheerun/vim-polyglot'
 Plug 'justinmk/vim-sneak'
 Plug 'bling/vim-airline'
 Plug 'majutsushi/tagbar'
-Plug 'ludovicchabant/vim-gutentags'
+" Plug 'ludovicchabant/vim-gutentags'
 
 Plug 'MarcWeber/vim-addon-mw-utils'
 Plug 'garbas/vim-snipmate'
@@ -51,6 +51,7 @@ Plug 'airblade/vim-gitgutter'
 Plug 'gcmt/wildfire.vim'
 Plug 'godlygeek/tabular'
 Plug 'guns/vim-sexp'
+Plug 'SevereOverfl0w/vim-replant'
 " Plug 'bhurlow/vim-parinfer'
 " Plug 'keith/swift.vim', { 'for': 'swift' }
 " Plug 'gabrielelana/vim-markdown'
@@ -240,7 +241,7 @@ let g:ale_fixers = {}
 let g:ale_fixers['javascript'] = ['prettier']
 let g:ale_fixers['css'] = ['prettier']
 let g:ale_fixers['scss'] = ['prettier']
-let g:ale_fix_on_save = 1
+" let g:ale_fix_on_save = 1
 
 " see https://github.com/tpope/vim-fireplace/pull/301/files
 " let g:fireplace_pprint_fn = 'clojure.pprint/pprint'
@@ -271,6 +272,8 @@ nnoremap Y y$
 let g:sneak#s_next = 1
 let g:sneak#label = 1
 
+nnoremap <silent> <F7> :set foldmethod=syntax<CR>
+nnoremap <silent> <F8> :set foldmethod=manual<CR>
 nnoremap <silent> <F9> :TagbarToggle<CR>
 let g:tagbar_left = 1
 let g:tagbar_autofocus = 1
