@@ -19,9 +19,9 @@ source /usr/local/share/chruby/auto.sh
 chruby 2.5
 
 # nvm
-# export NVM_DIR="/Users/rgm/.nvm"
-# [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
-# nvm use stable
+export NVM_DIR="/Users/rgm/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
+nvm use stable
 
 # direnv
 eval "$(direnv hook zsh)"
