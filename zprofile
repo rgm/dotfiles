@@ -106,3 +106,7 @@ function sd () {
 # eval $(op signin my)
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+# vault autocompletion
+autoload -U +X bashcompinit && bashcompinit
+complete -o nospace -C /Users/rgm/bin/vault vault
