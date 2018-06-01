@@ -23,6 +23,10 @@ export NVM_DIR="/Users/rgm/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
 nvm use stable
 
+# jenv
+export PATH=”$HOME/.jenv/bin:$PATH”
+eval "$(jenv init -)"
+
 # direnv
 eval "$(direnv hook zsh)"
 
@@ -110,3 +114,7 @@ function sd () {
 # vault autocompletion
 autoload -U +X bashcompinit && bashcompinit
 complete -o nospace -C /Users/rgm/bin/vault vault
+
+export PATH="$HOME/.cargo/bin:$PATH"
+
+alias vim=nvim
