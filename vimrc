@@ -102,10 +102,16 @@ Plug 'chrisbra/nrrwrgn'
 Plug 'jceb/vim-orgmode'
 Plug 'mbbill/undotree'
 
+Plug 'Asheq/close-buffers.vim'
+
  " colorschemes
 Plug 'lifepillar/vim-solarized8'
 Plug 'albertorestifo/github.vim'
 Plug 'pR0Ps/molokai-dark'
+
+" from https://github.com/daveyarwood/dotfiles/blob/master/vim/vimrc
+Plug 'junegunn/goyo.vim'
+Plug 'junegunn/limelight.vim'
 
 call plug#end()
 
@@ -114,10 +120,11 @@ call plug#end()
 
 " generally matches spacemacs
 let mapleader=" "
-nnoremap <leader>ff :Files<CR>
+nnoremap <leader>ff :FZF<CR>
+nnoremap <leader>fF :Files<CR>
 nnoremap <leader>fr :History<CR>
-nnoremap <leader>pf :GFiles<CR>
-nnoremap <leader>pF :GFiles?<CR>
+nnoremap <leader>pF :GFiles<CR>
+nnoremap <leader>pf :GFiles?<CR>
 nnoremap <leader>bb :Buffers<CR>
 nnoremap <leader>mm :Marks<CR>
 nnoremap <leader>c :BCommits<CR>
@@ -239,6 +246,7 @@ let g:ale_linters = {
 
 let g:ale_fixers = {}
 let g:ale_fixers['javascript'] = ['prettier']
+let g:ale_fixers['typescript'] = ['prettier']
 let g:ale_fixers['css'] = ['prettier']
 let g:ale_fixers['scss'] = ['prettier']
 " let g:ale_fix_on_save = 1
@@ -275,6 +283,10 @@ let g:sneak#label = 1
 nnoremap <silent> <F7> :set foldmethod=syntax<CR>
 nnoremap <silent> <F8> :set foldmethod=manual<CR>
 nnoremap <silent> <F9> :TagbarToggle<CR>
+nnoremap <silent> <F4> :ALEFix<CR>
 let g:tagbar_left = 1
 let g:tagbar_autofocus = 1
 let g:tagbar_compact = 1
+
+nnoremap <silent>,d :TernDef<CR>
+nnoremap <silent> O :CloseBuffersMenu<CR>
