@@ -17,16 +17,17 @@
     - ln -F -s ~/.zsh/plugins/pure_prompt/async.zsh /usr/local/share/zsh/site-functions/async
 
 - brew:
-    - coreutils
     - chruby
-    - ruby-install
+    - coreutils
     - ctags
+    - direnv
     - git
+    - jenv
+    - ruby-install
+    - source-highlight
     - vim
+    - z
     - zsh
     - zsh-completions
-    - direnv
-    - source-highlight
-    - z
 
 # set shiftwidth=2 tabstop=2 expandtab
