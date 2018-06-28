@@ -63,26 +63,27 @@ Plug 'luochen1990/rainbow'
 Plug 'mattn/emmet-vim'
 Plug 'pangloss/vim-javascript'
 Plug 'burnettk/vim-angular'
+Plug 'styled-components/vim-styled-components', { 'branch': 'main' }
 Plug 'ternjs/tern_for_vim'
 Plug 'rayburgemeestre/phpfolding.vim'
 Plug 'rgm/vectorscript-vim'
 Plug 'rizzatti/dash.vim'
 Plug 'tpope/vim-sexp-mappings-for-regular-people'
 " Plug 'venantius/vim-cljfmt'
-" Plug 'vim-syntastic/syntastic'
 Plug 'w0rp/ale'
 " Plug 'SevereOverfl0w/clojure-check', {'do': './install'}
 Plug 'guns/vim-clojure-highlight'
 Plug 'guns/vim-clojure-static'
+Plug 'guns/vim-sexp'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
+Plug 'SevereOverfl0w/vim-replant'
 Plug 'mileszs/ack.vim'
 Plug 'tpope/vim-abolish'
 Plug 'tpope/vim-classpath'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-endwise'
 Plug 'tpope/vim-fireplace' ", { 'for': 'clojure' }
-" Plug 'SevereOverfl0w/vim-fireplace'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-rhubarb'
 Plug 'tpope/vim-repeat'
@@ -93,8 +94,8 @@ Plug 'tpope/vim-dispatch'
 Plug 'tpope/vim-rails'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-unimpaired'
+Plug 'tpope/vim-vinegar'
 Plug 'tpope/vim-projectionist'
-" Plug 'vim-scripts/paredit.vim', { 'for': 'clojure' }
 Plug 'tweekmonster/django-plus.vim'
 Plug 'christoomey/vim-conflicted'
 
@@ -103,6 +104,7 @@ Plug 'jceb/vim-orgmode'
 Plug 'mbbill/undotree'
 
 Plug 'Asheq/close-buffers.vim'
+Plug 'AndrewRadev/switch.vim'
 
  " colorschemes
 Plug 'lifepillar/vim-solarized8'
@@ -138,8 +140,11 @@ nnoremap <leader>gs :Gstatus<CR>
 nnoremap <leader><leader> <c-^>
 
 " via http://mixandgo.com/blog/vim-config-for-rails-ninjas
-au BufWritePost .vimrc so $MYVIMRC
-nnoremap <leader>V :e $MYVIMRC<cr>
+" au BufWritePost .vimrc so $MYVIMRC
+" nnoremap <leader>V :e $MYVIMRC<cr>
+
+au BufWritePost .vimrc so ~/.vimrc
+nnoremap <leader>V :e ~/.vimrc<cr>
 
 nnoremap <silent><leader>\ :nohls<CR>
 
@@ -249,6 +254,7 @@ let g:ale_fixers['javascript'] = ['prettier']
 let g:ale_fixers['typescript'] = ['prettier']
 let g:ale_fixers['css'] = ['prettier']
 let g:ale_fixers['scss'] = ['prettier']
+let g:ale_fixers['ruby'] = ['rubocop']
 " let g:ale_fix_on_save = 1
 
 " see https://github.com/tpope/vim-fireplace/pull/301/files
@@ -289,4 +295,4 @@ let g:tagbar_autofocus = 1
 let g:tagbar_compact = 1
 
 nnoremap <silent>,d :TernDef<CR>
-nnoremap <silent> O :CloseBuffersMenu<CR>
+nnoremap <silent>,O :CloseBuffersMenu<CR>
