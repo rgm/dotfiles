@@ -6,6 +6,8 @@
     ~/.ctags: ctags
     ~/.vim: vim
     ~/.vimrc: vimrc
+    ~/.emacs: emacs
+    ~/.emacs.d: emacs.d
     ~/.zprofile: zprofile
     ~/.zsh: zsh
     ~/.gitconfig: gitconfig

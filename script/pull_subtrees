@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+
+# https://github.com/emacs-evil/evil.git
+git fetch emacs-evil-evil master
+git subtree pull --prefix emacs.d/evil emacs-evil-evil master --squash
