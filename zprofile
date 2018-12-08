@@ -117,4 +117,5 @@ complete -o nospace -C /Users/rgm/bin/vault vault
 
 export PATH="$HOME/.cargo/bin:$PATH"
 
-alias vim=nvim
+export FZF_DEFAULT_COMMAND="fd --type f --hidden --exclude node_modules --exclude .git"
+eval "$(pyenv init -)"

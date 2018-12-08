@@ -27,6 +27,7 @@
     - direnv
     - git
     - jenv
+    - pyenv
     - ruby-install
     - source-highlight
     - vim
