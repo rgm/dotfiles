@@ -13,6 +13,7 @@
     ~/.gitconfig: gitconfig
     ~/.git_commit_template: git_commit_template
     ~/.lein: lein
+    ~/.clojure: clojure
 
 - shell:
     - ln -F -s ~/.zsh/plugins/pure_prompt/pure.zsh /usr/local/share/zsh/site-functions/prompt_pure_setup
@@ -20,6 +21,7 @@
 
 - brew:
     - chruby
+    - clojure
     - coreutils
     - ctags
     - direnv
