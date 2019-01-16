@@ -18,6 +18,7 @@ set splitbelow
 set splitright
 set tabstop=2 shiftwidth=2 softtabstop=2
 set title
+set modelines=5
 " set undolevels=1000
 " set visualbell
 set winwidth=90
@@ -130,6 +131,8 @@ Plug 'junegunn/limelight.vim'
 
 " craftcms
 Plug 'evidens/vim-twig'
+
+Plug 'udalov/javap-vim'
 
 call plug#end()
 
@@ -247,6 +250,22 @@ else
   hi DiffChange   ctermbg=17 ctermfg=15
   hi DiffText     ctermbg=21 ctermfg=15
   hi DiffDelete   ctermbg=52 ctermfg=15
+else " molokai, dark
+  colo molokai-dark
+  set termguicolors
+  hi SignColumn              guibg=#000000
+  hi GitGutterAdd            ctermbg=234 ctermfg=green guibg=#000000
+  hi GitGutterChange         ctermbg=234 ctermfg=blue guibg=#000000
+  hi GitGutterDelete         ctermbg=234 ctermfg=red guibg=#000000
+  hi GitGutterChangeDelete   ctermbg=234 ctermfg=magenta guibg=#000000
+  hi LineNr                  ctermfg=239 guifg=#222222 guibg=#000000
+
+  hi DiffAdd      ctermbg=22 ctermfg=15
+  hi DiffChange   ctermbg=17 ctermfg=15
+  hi DiffText     ctermbg=21 ctermfg=15
+  hi DiffDelete   ctermbg=52 ctermfg=15
+  
+  hi Comment guifg=#555555
 endif
 
 " always show ale/gitgutter
@@ -261,6 +280,7 @@ let g:gitgutter_sign_added = '∙'
 let g:gitgutter_sign_modified = '∙'
 let g:gitgutter_sign_removed = '∙'
 let g:gitgutter_sign_modified_removed = '∙'
+let g:gitgutter_terminal_reports_focus = 0
 
 let g:ale_sign_warning = '▲'
 let g:ale_sign_error = '✗'
@@ -279,6 +299,7 @@ let g:ale_fixers['css']        = ['prettier']
 let g:ale_fixers['scss']       = ['prettier']
 let g:ale_fixers['ruby']       = ['rubocop']
 let g:ale_fixers['sh']         = ['shfmt']
+let g:ale_fixers['python']     = ['black']
 " let g:ale_fix_on_save = 1
 
 " set foldmethod=syntax
