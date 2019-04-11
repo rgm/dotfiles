@@ -16,12 +16,22 @@ setopt DVORAK
 # chruby
 source /usr/local/opt/chruby/share/chruby/chruby.sh
 source /usr/local/share/chruby/auto.sh
-chruby 2.5
+chruby 2.6
 
 # nvm
 export NVM_DIR="/Users/rgm/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
-nvm use stable
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" --no-use
+autoload -U add-zsh-hook
+load-nvmrc() {
+  if [[ -f .nvmrc && -r .nvmrc ]]; then
+    nvm use
+#   elif [[ $(nvm version) != $(nvm version default)  ]]; then
+#     echo "Reverting to nvm default version"
+#     nvm use default
+  fi
+}
+add-zsh-hook chpwd load-nvmrc
+load-nvmrc
 
 # jenv
 export PATH=”$HOME/.jenv/bin:$PATH”
@@ -118,4 +128,6 @@ complete -o nospace -C /Users/rgm/bin/vault vault
 export PATH="$HOME/.cargo/bin:$PATH"
 
 export FZF_DEFAULT_COMMAND="fd --type f --hidden --exclude node_modules --exclude .git"
+export FZF_ALT_C_COMMAND="fd --type d . ~/Projects"
+
 eval "$(pyenv init -)"
