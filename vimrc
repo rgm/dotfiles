@@ -21,7 +21,9 @@ set title
 set modelines=5
 " set undolevels=1000
 " set visualbell
-set winwidth=90
+" set winwidth=90
+set nocompatible
+
 "
 " set backupdir=./.backup,.,/tmp
 " set directory=.,./.backup,/tmp
@@ -67,27 +69,28 @@ Plug 'leafgarland/typescript-vim'
 " Plug 'jsx/jsx.vim'
 Plug 'mattn/emmet-vim'
 Plug 'pangloss/vim-javascript'
-Plug 'burnettk/vim-angular'
-Plug 'styled-components/vim-styled-components', { 'branch': 'main' }
+" Plug 'burnettk/vim-angular'
+" Plug 'styled-components/vim-styled-components', { 'branch': 'main' }
 " Plug 'ternjs/tern_for_vim'
 " Plug 'rayburgemeestre/phpfolding.vim'
 Plug 'rgm/vectorscript-vim'
 Plug 'rizzatti/dash.vim'
 Plug 'tpope/vim-sexp-mappings-for-regular-people'
-Plug 'venantius/vim-cljfmt'
+" Plug 'venantius/vim-cljfmt'
 Plug 'w0rp/ale'
 " Plug 'SevereOverfl0w/clojure-check', {'do': './install'}
 Plug 'guns/vim-clojure-highlight'
-Plug 'guns/vim-clojure-static'
+Plug 'rgm/vim-clojure-static'
 Plug 'guns/vim-sexp'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 " Plug 'lotabout/skim', { 'dir': '~/.skim', 'do': './install' }
-Plug 'pelodelfuego/vim-swoop'
+" Plug 'pelodelfuego/vim-swoop'
 Plug 'mileszs/ack.vim'
-Plug 'tpope/vim-abolish'
+" Plug 'tpope/vim-abolish'
 Plug 'tpope/vim-classpath'
 Plug 'tpope/vim-commentary'
+Plug 'tpope/vim-cucumber'
 Plug 'tpope/vim-endwise'
 Plug 'tpope/vim-fireplace' ", { 'for': 'clojure' }
 Plug 'tpope/vim-fugitive'
@@ -95,8 +98,8 @@ Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-rhubarb'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-salve'
-Plug 'tpope/vim-sleuth'
-Plug 'tpope/vim-speeddating'
+" Plug 'tpope/vim-sleuth'
+" Plug 'tpope/vim-speeddating'
 Plug 'tpope/vim-dispatch'
 Plug 'tpope/vim-rails'
 Plug 'tpope/vim-surround'
@@ -104,18 +107,18 @@ Plug 'tpope/vim-unimpaired'
 Plug 'tpope/vim-vinegar'
 Plug 'tpope/vim-projectionist'
 " Plug 'tweekmonster/django-plus.vim'
-Plug 'christoomey/vim-conflicted'
+" Plug 'christoomey/vim-conflicted'
 " Plug 'vim-ctrlspace/vim-ctrlspace'
-Plug 'chrisbra/unicode.vim'
+" Plug 'chrisbra/unicode.vim'
 
-Plug 'chrisbra/nrrwrgn'
-Plug 'jceb/vim-orgmode'
-Plug 'mbbill/undotree'
+" Plug 'chrisbra/nrrwrgn'
+" Plug 'jceb/vim-orgmode'
+" Plug 'mbbill/undotree'
 
 " Plug 'Asheq/close-buffers.vim'
-Plug 'AndrewRadev/switch.vim'
+" Plug 'AndrewRadev/switch.vim'
 
-Plug 'francoiscabrol/ranger.vim'
+" Plug 'francoiscabrol/ranger.vim'
 
  " colorschemes
 Plug 'lifepillar/vim-solarized8'
@@ -124,10 +127,12 @@ Plug 'pR0Ps/molokai-dark'
 Plug 'sickill/vim-monokai'
 Plug 'trevordmiller/nova-vim'
 Plug 'cocopon/iceberg.vim'
+Plug 'fxn/vim-monochrome'
+Plug 'sonph/onehalf'
 
 " from https://github.com/daveyarwood/dotfiles/blob/master/vim/vimrc
-Plug 'junegunn/goyo.vim'
-Plug 'junegunn/limelight.vim'
+" Plug 'junegunn/goyo.vim'
+" Plug 'junegunn/limelight.vim'
 
 " craftcms
 Plug 'evidens/vim-twig'
@@ -153,7 +158,7 @@ nnoremap <leader>pc :Commits<CR>
 nnoremap <leader>bt :BTags<CR>
 nnoremap <leader>pt :Tags<CR>
 
-nnoremap <leader>gs :Gstatus<CR>
+nnoremap <leader>gs :vert Gstatus<CR>
 
 " toggle between file and its alternate
 " nnoremap <leader><leader> <c-^>
@@ -205,11 +210,13 @@ let g:dash_map = {
 command! Figapp :Piggieback! (figwheel-sidecar.repl-api/repl-env "app")
 command! Figdevcard :Piggieback! (figwheel-sidecar.repl-api/repl-env "devcards")
 command! Figchestnut :Piggieback (figwheel-sidecar.system/repl-env (:figwheel-system reloaded.repl/system) nil)
+" see https://figwheel.org/docs/vim.html
+command! Fig :Piggieback (figwheel.main.api/repl-env "dev")
 
 let maplocalleader=","
 
 " clojure indentation
-let g:clojure_maxlines = 50
+let g:clojure_maxlines = 100 
 let g:clojure_align_multiline_strings = 1
 
 " color switch on iterm profile
@@ -234,11 +241,15 @@ elseif iterm_profile == "solarized-dark"
   colo solarized8
 elseif iterm_profile == "nova"
   colo nova
-else
-  " colo molokai-dark
-  " colo monokai
+elseif iterm_profile == "iceberg"
   colo iceberg
+  " colo monochrome
   set termguicolors
+
+  " see
+  " https://www.reddit.com/r/vim/comments/5416d0/true_colors_in_vim_under_tmux/
+  let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
+  let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
   hi SignColumn              ctermbg=234 guibg=#161821
   hi GitGutterAdd            ctermbg=234 ctermfg=green   guibg=#161821
   hi GitGutterChange         ctermbg=234 ctermfg=blue    guibg=#161821
@@ -266,6 +277,9 @@ else " molokai, dark
   hi DiffDelete   ctermbg=52 ctermfg=15
   
   hi Comment guifg=#555555
+
+  " for clojure keywords
+  hi Keyword term=NONE ctermfg=81 cterm=NONE gui=NONE guifg=#A6E22E
 endif
 
 " always show ale/gitgutter
@@ -308,7 +322,12 @@ set diffopt+=vertical
 " command Greview :Git! diff --staged
 nnoremap <leader>gr :Greview<cr>
 
-nnoremap <LocalLeader>f :set foldmethod=syntax<CR>
+nnoremap <LocalLeader>fs :set foldmethod=syntax<CR>
+nnoremap <LocalLeader>fm :set foldmethod=manual<CR>
+nnoremap <LocalLeader>f1 :set foldlevel=1<CR>
+nnoremap <LocalLeader>f2 :set foldlevel=2<CR>
+nnoremap <LocalLeader>f3 :set foldlevel=3<CR>
+nnoremap <LocalLeader>f4 :set foldlevel=4<CR>
 
 " wrap diff always
 " https://stackoverflow.com/a/17329864/53790
@@ -358,6 +377,10 @@ nmap fb <Plug>(sexp_flow_to_prev_leaf_head)
 nmap fw <Plug>(sexp_flow_to_next_leaf_head)
 nmap fg <Plug>(sexp_flow_to_prev_leaf_tail)
 nmap fe <Plug>(sexp_flow_to_next_leaf_tail)
+
+au BufEnter *.clj nnoremap <buffer> cpt :Eval<CR>
+au BufEnter *.cljc nnoremap <buffer> cpt :Eval<CR>
+au BufEnter *.cljs nnoremap <buffer> cpt :Eval<CR>
 
 " browse jars as if zips
 au BufRead,BufNewFile *.jar,*.war,*.ear,*.sar,*.rar set filetype=zip
