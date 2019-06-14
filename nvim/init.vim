@@ -8,10 +8,14 @@ Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 Plug 'jremmen/vim-ripgrep'
 Plug 'ntpeters/vim-better-whitespace'
-Plug 'Olical/conjure', { 'tag': 'v0.15.0', 'do': 'bin/compile', 'for': 'clojure', 'on': 'ConjureAdd'  }
+Plug 'majutsushi/tagbar'
+Plug 'Olical/conjure', { 'tag': 'v0.18.0', 'do': 'bin/compile', 'for': 'clojure', 'on': 'ConjureAdd'  }
+Plug 'mhinz/vim-signify'
 Plug 'pR0Ps/molokai-dark'
 Plug 'rizzatti/dash.vim'
+Plug 'sheerun/vim-polyglot'
 Plug 'tpope/vim-commentary'
+" Plug 'tpope/vim-fireplace', { 'for': 'clojure' }
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-sensible'
@@ -59,9 +63,31 @@ nnoremap <leader>mm :Marks<CR>
 nnoremap <leader>bc :BCommits<CR>
 nnoremap <leader>pc :Commits<CR>
 nnoremap <leader>bt :BTags<CR>
-nnoremap <leader>pt :Tags<CR>
+nnoremap <leader>tt :Tags<CR>
 nnoremap <leader>gs :vert Gstatus<CR>
+
+" match clojure-mode.el's and cljfmt's behaviour on (:require\n[foo.bar...
+let g:clojure_align_subforms = 1
+
+let g:rg_highlight = 1
+
+" conjure
+" let g:conjure_log_direction = "horizontal"
+let g:conjure_log_size_small = 10
+let g:conjure_log_size_large = 50
+augroup additional_conjure_bindings
+  autocmd!
+  autocmd FileType clojure nnoremap <buffer> <localleader>caj :ConjureAdd {:tag :jvm :port 5555 :lang :clj}<cr>
+  autocmd FileType clojure nnoremap <buffer> <localleader>can :ConjureAdd {:tag :node :port 5556 :lang :cljs}<cr>
+  autocmd FileType clojure nnoremap <buffer> <localleader>cab :ConjureAdd {:tag :browser :port 5557 :lang :cljs}<cr>
+  autocmd FileType clojure nnoremap <buffer> <localleader>cab :ConjureAdd {:tag :figwheel :port 5558 :lang :cljs}<cr>
+
+  autocmd FileType clojure nnoremap <buffer> <localleader>cr :ConjureRemoveAll<cr>
+
+  autocmd FileType clojure nnoremap <buffer> <localleader>rr :!afza<cr>
+augroup END
+
 
 " reload config on save
 au BufWritePost init.vim so ~/.config/nvim/init.vim
-nnoremap <leader>V :e ~/.config/nvim/init.vim<cr>
+nnoremap <leader>V :vsplit ~/.config/nvim/init.vim<cr>
