@@ -75,35 +75,24 @@
   prompt = false
 
 [diff]
-  ;tool = p4mergetool
-  tool = Kaleidoscope
-  algorithm = patience
+  tool                = Kaleidoscope
+  ; tool                = vimdiff
+  algorithm           = patience
   compactionHeuristic = true
 
 [mergetool]
-  prompt = false
-  keepBackup = false
-
-[mergetool "Kaleidoscope"]
-  cmd = ksdiff --merge --output \"$MERGED\" --base \"$BASE\" -- \"$LOCAL\" --snapshot \"$REMOTE\" --snapshot
-  trustExitCode = true
+  prompt        = false
+  keepBackup    = false
 
 [merge]
-  ; tool = p4mergetool
-  tool = Kaleidoscope
-
-[mergetool "p4mergetool"]
-  cmd = /Applications/Perforce/p4merge.app/Contents/Resources/launchp4merge $PWD/$BASE $PWD/$REMOTE $PWD/$LOCAL $PWD/$MERGED
-  trustExitCode = false
-
-[difftool "p4mergetool"]
-  cmd = /Applications/Perforce/p4merge.app/Contents/Resources/launchp4merge $LOCAL $REMOTE
+  tool          = vimdiff
+  conflictStyle = diff3
 
 [push]
-  default = upstream
+  default       = upstream
 
 [init]
-  templatedir = ~/.git_template
+  templatedir   = ~/.git_template
 
 [pull]
   rebase = true
@@ -116,19 +105,19 @@
 
 [filter "media"]
   required = true
-  clean = git media clean %f
-  smudge = git media smudge %f
+  clean    = git media clean %f
+  smudge   = git media smudge %f
 
 [filter "hawser"]
-  clean = git hawser clean %f
-  smudge = git hawser smudge %f
+  clean    = git hawser clean %f
+  smudge   = git hawser smudge %f
   required = true
 
 [filter "lfs"]
-  clean = git-lfs clean -- %f
-  smudge = git-lfs smudge -- %f
+  clean    = git-lfs clean -- %f
+  smudge   = git-lfs smudge -- %f
   required = true
-  process = git-lfs filter-process
+  process  = git-lfs filter-process
 
 [commit]
-	template = /Users/rgm/.git_commit_template
+  template = /Users/rgm/.git_commit_template
