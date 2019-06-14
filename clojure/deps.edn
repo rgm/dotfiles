@@ -9,44 +9,42 @@
 ;; For all attributes other than :paths, these config files are merged left to right.
 ;; Only the last :paths is kept and others are dropped.
 
-{
- ;; Paths
+{;; Paths
  ;;   Directories in the current project to include in the classpath
-
- ;; :paths ["src"]
-
+ :paths ["dev" "src"]
  ;; External dependencies
-
- :deps {
-				org.clojure/clojure {:mvn/version "1.10.0-beta6"}
-				org.clojure/data.xml {:mvn/version "0.2.0-alpha5"}
-				}
-
+ :deps #:org.clojure{clojure #:mvn{:version "1.10.0"}
+                     clojurescript #:mvn{:version "1.10.520"}}
  ;; Aliases
  ;;   resolve-deps aliases (-R) affect dependency resolution, options:
  ;;     :extra-deps - specifies extra deps to add to :deps
  ;;     :override-deps - specifies a coordinate to use instead of that in :deps
- ;;     :default-deps - specifies a coordinate to use for a lib if one isn't found
+ ;;     :default-deps - specifies a coordinate to use for a lib if one isn't
+ ;;     found
  ;;   make-classpath aliases (-C) affect the classpath generation, options:
  ;;     :extra-paths - vector of additional paths to add to the classpath
- ;;     :classpath-overrides - map of lib to path that overrides the result of resolving deps
-
- :aliases {
-					 ;;   :deps {:extra-deps {org.clojure/tools.deps.alpha {:mvn/version "0.2.155"}}}
-					 ;;   :test {:extra-paths ["test"]}
-					 :ancient {:extra-deps {olical/depot {:mvn/version "1.2.0"}}
-										 :main-opts ["-m" "depot.outdated.main"]}
-
-					 :lint {:extra-deps {com.jameslaverack/cljfmt-runner
-															 {:git/url "https://github.com/JamesLaverack/cljfmt-runner"
-																:sha "51f85c9d6cc67107620749ceacd46120647fe107"}}
-									:main-opts ["-m" "cljfmt-runner.check"]}
-					 :lint/fix {:main-opts ["-m" "cljfmt-runner.fix"]}}
-
- ;; Provider attributes
-
- ;; :mvn/repos {
- ;;   "central" {:url "https://repo1.maven.org/maven2/"}
- ;;   "clojars" {:url "https://clojars.org/repo/"}
- ;; }
- }
+ ;;     :classpath-overrides - map of lib to path that overrides the result of
+ ;;     resolving deps
+ :aliases
+ #:rgm{:ml {:extra-deps {clojure-csv/clojure-csv #:mvn{:version "2.0.1"}
+                         metasoarous/oz #:mvn{:version "1.5.6"}
+                         org.clojure/data.csv #:mvn{:version "0.1.4"}
+                         semantic-csv #:mvn{:version "0.2.1-alpha1"}}}
+       :ancient {:extra-deps #:olical{depot #:mvn{:version "1.8.2"}}
+                 :main-opts ["-m" "depot.outdated.main"]}
+       :nrepl
+       {:extra-deps {cider/cider-nrepl #:mvn{:version "0.21.1"}
+                     cider/piggieback #:mvn{:version "0.4.0"}
+                     nrepl #:mvn{:version "0.6.0"}}
+        :main-opts
+        ["-m" "nrepl.cmdline" "--middleware"
+         "[cider.nrepl/cider-middleware,cider.piggieback/wrap-cljs-repl]"
+         "--interactive" "--color"]}
+       :lint
+       {:extra-deps
+        #:com.jameslaverack{cljfmt-runner
+                            {:git/url
+                             "https://github.com/JamesLaverack/cljfmt-runner"
+                             :sha
+                             "97960e9a6464935534b5a6bab529e063d0027128"}}
+        :main-opts ["-m" "cljfmt-runner.fix"]}}}
