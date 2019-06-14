@@ -377,3 +377,6 @@ au BufEnter *.cljs nnoremap <buffer> cpt :Eval<CR>
 
 " browse jars as if zips
 au BufRead,BufNewFile *.jar,*.war,*.ear,*.sar,*.rar set filetype=zip
+
+" match clojure-mode.el's and cljfmt's behaviour on (:require\n[foo.bar...
+let g:clojure_align_subforms = 1
