@@ -27,9 +27,12 @@
     - ctags
     - direnv
     - entr
+    - fd
     - git
     - jenv
+    - n
     - pyenv
+    - rg
     - ruby-install
     - source-highlight
     - vim
