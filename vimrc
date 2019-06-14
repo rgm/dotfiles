@@ -335,6 +335,7 @@ nnoremap <LocalLeader>f4 :set foldlevel=4<CR>
 autocmd FilterWritePre * if &diff | setlocal wrap< | endif
 
 autocmd FileType terraform setlocal commentstring=#\ %s
+autocmd FileType sql setlocal commentstring=--\ %s
 
 let g:rainbow_conf = {'ctermfgs': ['Blue', 'Green', 'DarkMagenta', 'DarkRed']}
 
