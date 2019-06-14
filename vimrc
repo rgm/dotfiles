@@ -1,32 +1,33 @@
+set nocompatible
+
 " all below in vim-sensible
 set autoread " kill git 'file has changed' prompts
 " set backspace=indent,eol,start
+set nobackup
+" set backupdir=./.backup,.,/tmp
 set cursorline
+" set directory=.,./.backup,/tmp
 set encoding=utf-8
 set expandtab
-set history=10000
 set hidden " switch away from unsaved buffers
+set history=10000
 set hlsearch
-set incsearch
 set ignorecase smartcase
+set incsearch
 set infercase
-set nobackup
-set noswapfile
+set modelines=5
+" set number
+" set relativenumber
 " set ruler
 set showcmd
 set splitbelow
 set splitright
+set noswapfile
 set tabstop=2 shiftwidth=2 softtabstop=2
 set title
-set modelines=5
 " set undolevels=1000
 " set visualbell
 " set winwidth=90
-set nocompatible
-
-"
-" set backupdir=./.backup,.,/tmp
-" set directory=.,./.backup,/tmp
 
 call plug#begin('~/.vim/plugged')
 
