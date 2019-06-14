@@ -26,6 +26,7 @@
     - coreutils
     - ctags
     - direnv
+    - entr
     - git
     - jenv
     - pyenv
@@ -34,7 +35,6 @@
     - vim
     - z
     - zsh
-    - entr
     - zsh-completions
 
 # set shiftwidth=2 tabstop=2 expandtab
