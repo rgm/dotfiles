@@ -217,7 +217,7 @@ command! Fig :Piggieback (figwheel.main.api/repl-env "dev")
 let maplocalleader=","
 
 " clojure indentation
-let g:clojure_maxlines = 100 
+let g:clojure_maxlines = 100
 let g:clojure_align_multiline_strings = 1
 
 " color switch on iterm profile
@@ -276,7 +276,7 @@ else " molokai, dark
   hi DiffChange   ctermbg=17 ctermfg=15
   hi DiffText     ctermbg=21 ctermfg=15
   hi DiffDelete   ctermbg=52 ctermfg=15
-  
+
   hi Comment guifg=#555555
 
   " for clojure keywords
@@ -347,15 +347,6 @@ nnoremap <silent> <F7> :set foldmethod=syntax<CR>
 nnoremap <silent> <F8> :set foldmethod=manual<CR>
 nnoremap <silent> <F9> :TagbarToggle<CR>
 nnoremap <silent> <F4> :ALEFix<CR>
-
-" syntax performance for HTAP
-" https://stackoverflow.com/a/7187629
-nnoremap <silent> <F5> :syntax sync fromstart<CR>
-set nocursorcolumn
-" set nocursorline
-set number
-" set norelativenumber
-syntax sync minlines=256
 
 let g:tagbar_left = 1
 let g:tagbar_autofocus = 1
