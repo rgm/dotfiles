@@ -13,7 +13,7 @@
  ;;   Directories in the current project to include in the classpath
  :paths ["dev" "src"]
  ;; External dependencies
- :deps #:org.clojure{clojure #:mvn{:version "1.10.0"}
+ :deps #:org.clojure{clojure #:mvn{:version "1.10.1"}
                      clojurescript #:mvn{:version "1.10.520"}}
  ;; Aliases
  ;;   resolve-deps aliases (-R) affect dependency resolution, options:
@@ -30,16 +30,52 @@
                          metasoarous/oz #:mvn{:version "1.5.6"}
                          org.clojure/data.csv #:mvn{:version "0.1.4"}
                          semantic-csv #:mvn{:version "0.2.1-alpha1"}}}
-       :ancient {:extra-deps #:olical{depot #:mvn{:version "1.8.2"}}
-                 :main-opts ["-m" "depot.outdated.main"]}
+
+       :depot {:extra-deps #:olical{depot #:mvn{:version "1.8.2"}}
+               :main-opts ["-m" "depot.outdated.main"]}
+
        :nrepl
-       {:extra-deps {cider/cider-nrepl #:mvn{:version "0.21.1"}
-                     cider/piggieback #:mvn{:version "0.4.0"}
-                     nrepl #:mvn{:version "0.6.0"}}
+       {:extra-deps {cider/cider-nrepl #:mvn{:version "RELEASE"}
+                     cider/piggieback #:mvn{:version "RELEASE"}
+                     nrepl #:mvn{:version "RELEASE"}}
         :main-opts
         ["-m" "nrepl.cmdline" "--middleware"
          "[cider.nrepl/cider-middleware,cider.piggieback/wrap-cljs-repl]"
          "--interactive" "--color"]}
+
+
+       :rebel
+       {:extra-deps {com.bhauman/rebel-readline {:mvn/version "0.1.4"}}
+        :main-opts  ["-m" "rebel-readline.main"]}
+
+       ;; see https://github.com/seancorfield/dot-clojure/blob/master/deps.edn
+       :prepl {:jvm-opts ["-Dclojure.server.repl={:port,5555,:accept,clojure.core.server/io-prepl}"]}
+
+       :low-mem {:jvm-opts ["-J-Xmx512m"]}
+
+       :high-mem {:jvm-opts ["-J-Xmx4g"]}
+
+       :figwheel {:extra-deps {com.bhauman/figwheel-main {:mvn/version "0.2.0"}}
+                  :main-opts ["-m" "figwheel.main"]}
+
+       :rebl-11
+       {:extra-deps {org.clojure/core.async {:mvn/version "0.4.490"}
+                     ;; deps for file datafication (0.9.149 or later)
+                     org.clojure/data.csv {:mvn/version "0.1.4"}
+                     org.clojure/data.json {:mvn/version "0.2.3"}
+                     org.yaml/snakeyaml {:mvn/version "1.23"}
+                     com.cognitect/rebl
+                     ;; adjust to match your install location
+                     {:local/root "/Users/rgm/Projects/forks/clojure/REBL-0.9.172/REBL-0.9.172.jar"}
+                     org.openjfx/javafx-fxml     {:mvn/version "11.0.1"}
+                     org.openjfx/javafx-controls {:mvn/version "11.0.1"}
+                     org.openjfx/javafx-graphics {:mvn/version "11.0.1"}
+                     org.openjfx/javafx-media    {:mvn/version "11.0.1"}
+                     org.openjfx/javafx-swing    {:mvn/version "11.0.1"}
+                     org.openjfx/javafx-base     {:mvn/version "11.0.1"}
+                     org.openjfx/javafx-web      {:mvn/version "11.0.1"}}
+        :main-opts ["-m" "cognitect.rebl"]}
+
        :lint
        {:extra-deps
         #:com.jameslaverack{cljfmt-runner
