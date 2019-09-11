@@ -2,6 +2,9 @@
     link:
       relink: true
 
+- shell:
+    - mkdir -p ~/.config
+
 - link:
     ~/.ctags: ctags
     ~/.vim: vim
