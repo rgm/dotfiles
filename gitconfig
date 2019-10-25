@@ -1,8 +1,8 @@
 # vim: syntax=gitconfig ft=gitconfig
 
 [user]
-  name         = Ryan McCuaig
-  email        = ryan@ryanmccuaig.net
+	name = Ryan McCuaig
+	email = ryan@ryanmccuaig.net
 
 [color]
   diff         = auto
@@ -34,10 +34,9 @@
   unstage      = reset HEAD --
   last         = log -1 -p HEAD
   l2w          = log --since 2.weeks.ago --pretty=oneline --abbrev-commit --decorate
-  l            = log --pretty=oneline --abbrev-commit --decorate
-  lll          = log --pretty=oneline --abbrev-commit --graph --decorate
+  l            = log --pretty=oneline --abbrev-commit --graph --decorate
   added        = diff --cached --name-only
-  dt           = difftool
+  dt           = difftool master...HEAD
 
   dts          = difftool --cached
   ksreview     = "!sh -c 'SHA=${1:-HEAD}; BRANCH=${2:-master}; if [ $SHA == $BRANCH ] ; then SHA=HEAD; fi; BASE_SHA=$(git merge-base $BRANCH $SHA); git difftool $BASE_SHA $SHA;' -"
@@ -56,6 +55,8 @@
   pa           = pull --autostash
   r            = !git l -30
   ra           = !git r --all
+
+  pr           = log master...HEAD -p --reverse
 
 [github]
   user         = !cat ~/.github_user
@@ -85,7 +86,7 @@
   keepBackup    = false
 
 [merge]
-  tool          = vimdiff
+	tool = vimdiff
   conflictStyle = diff3
 
 [push]
