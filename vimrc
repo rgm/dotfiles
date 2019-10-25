@@ -1,5 +1,6 @@
 set nocompatible
 
+
 " all below in vim-sensible
 set autoread " kill git 'file has changed' prompts
 " set backspace=indent,eol,start
@@ -27,34 +28,35 @@ set tabstop=2 shiftwidth=2 softtabstop=2
 set title
 " set undolevels=1000
 " set visualbell
-" set winwidth=90
+set winwidth=90
 
 call plug#begin('~/.vim/plugged')
 
 Plug 'tpope/vim-sensible'
-
 Plug 'sheerun/vim-polyglot'
 " Plug 'Konfekt/FastFold'
 " Plug 'flazz/vim-colorschemes'
-" Plug 'scrooloose/nerdtree'
 " Plug 'justinmk/vim-sneak'
 Plug 'easymotion/vim-easymotion'
 Plug 'bling/vim-airline'
 Plug 'majutsushi/tagbar'
-" Plug 'ludovicchabant/vim-gutentags'
+Plug 'ludovicchabant/vim-gutentags'
 
 Plug 'MarcWeber/vim-addon-mw-utils'
-Plug 'garbas/vim-snipmate'
+" Plug 'garbas/vim-snipmate'
+Plug 'SirVer/ultisnips'
 Plug 'tomtom/tlib_vim'
 Plug 'honza/vim-snippets'
 
+Plug 'ntpeters/vim-better-whitespace'
 " Plug 'eagletmt/ghcmod-vim'
 " Plug 'wlangstroth/vim-racket'
 
 Plug '~/Projects/splitjoin.vim'
 Plug 'PeterRincker/vim-argumentative'
 " Plug 'StanAngeloff/php.vim', { 'for': 'php' }
-Plug 'airblade/vim-gitgutter'
+" Plug 'airblade/vim-gitgutter'
+Plug 'mhinz/vim-signify'
 " Plug 'benmills/vimux'
 Plug 'gcmt/wildfire.vim'
 Plug 'godlygeek/tabular'
@@ -77,11 +79,13 @@ Plug 'pangloss/vim-javascript'
 Plug 'rgm/vectorscript-vim'
 Plug 'rizzatti/dash.vim'
 Plug 'tpope/vim-sexp-mappings-for-regular-people'
-" Plug 'venantius/vim-cljfmt'
-Plug 'w0rp/ale'
+Plug 'venantius/vim-cljfmt'
+" Plug 'fbeline/kibit-vim'
+Plug 'dense-analysis/ale'
 " Plug 'SevereOverfl0w/clojure-check', {'do': './install'}
 Plug 'guns/vim-clojure-highlight'
 Plug 'rgm/vim-clojure-static'
+Plug 'clojure-vim/vim-jack-in'
 Plug 'guns/vim-sexp'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
@@ -99,6 +103,7 @@ Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-rhubarb'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-salve'
+Plug 'tpope/vim-scriptease'
 " Plug 'tpope/vim-sleuth'
 " Plug 'tpope/vim-speeddating'
 Plug 'tpope/vim-dispatch'
@@ -120,6 +125,8 @@ Plug 'tpope/vim-projectionist'
 " Plug 'AndrewRadev/switch.vim'
 
 " Plug 'francoiscabrol/ranger.vim'
+Plug 'janko/vim-test'
+Plug 'rust-lang/rust.vim'
 
  " colorschemes
 Plug 'lifepillar/vim-solarized8'
@@ -130,13 +137,15 @@ Plug 'trevordmiller/nova-vim'
 Plug 'cocopon/iceberg.vim'
 Plug 'fxn/vim-monochrome'
 Plug 'sonph/onehalf'
+Plug 'wlangstroth/vim-racket'
+Plug 'arcticicestudio/nord-vim'
 
 " from https://github.com/daveyarwood/dotfiles/blob/master/vim/vimrc
 " Plug 'junegunn/goyo.vim'
 " Plug 'junegunn/limelight.vim'
 
 " craftcms
-Plug 'evidens/vim-twig'
+" Plug 'evidens/vim-twig'
 
 Plug 'udalov/javap-vim'
 
@@ -158,6 +167,7 @@ nnoremap <leader>bc :BCommits<CR>
 nnoremap <leader>pc :Commits<CR>
 nnoremap <leader>bt :BTags<CR>
 nnoremap <leader>pt :Tags<CR>
+nnoremap <leader>bt :BLines<CR>
 
 nnoremap <leader>gs :vert Gstatus<CR>
 
@@ -196,7 +206,7 @@ nnoremap <leader>o <C-W>o<CR>
 
 " ag.vim -> ack so we can go through quickfix instead of fzf
 " let g:ackprg = 'ag --vimgrep --smart-case'
-let g:ackprg = 'ag --vimgrep --no-heading'
+let g:ackprg = 'rg --vimgrep --no-heading'
 
 let g:rainbow_active = 1
 
@@ -232,6 +242,7 @@ if iterm_profile == "light"
   " highlight GitGutterChangeDelete ctermfg=magenta
   highlight Folded ctermbg=255 ctermfg=17
   highlight CursorLine ctermbg=193
+  highlight ColorColumn ctermbg=255 guibg=#2c2d27
 elseif iterm_profile == "solarized-light"
   let g:solarized_use16 = 1
   set background=light
@@ -242,8 +253,9 @@ elseif iterm_profile == "solarized-dark"
   colo solarized8
 elseif iterm_profile == "nova"
   colo nova
-elseif iterm_profile == "iceberg"
-  colo iceberg
+elseif iterm_profile == "dark"
+  " colo iceberg
+  colo nord
   " colo monochrome
   set termguicolors
 
@@ -258,24 +270,24 @@ elseif iterm_profile == "iceberg"
   hi GitGutterChangeDelete   ctermbg=234 ctermfg=magenta guibg=#161821
   hi LineNr                  ctermfg=239 ctermbg=235     guifg=#444b71 guibg=#161821
 
-  hi DiffAdd      ctermbg=22 ctermfg=15
-  hi DiffChange   ctermbg=17 ctermfg=15
-  hi DiffText     ctermbg=21 ctermfg=15
-  hi DiffDelete   ctermbg=52 ctermfg=15
+  " hi DiffAdd      ctermbg=22 ctermfg=15
+  hi DiffAdd      guibg=#0c4532
+  hi DiffDelete   guibg=#3f2b32
+  hi DiffChange   guibg=#3b4750
+  hi DiffText     guibg=#526370
 else " molokai, dark
-  colo molokai-dark
+  " colo molokai-dark
+  colo nord
   set termguicolors
-  hi SignColumn              guibg=#000000
-  hi GitGutterAdd            ctermbg=234 ctermfg=green guibg=#000000
-  hi GitGutterChange         ctermbg=234 ctermfg=blue guibg=#000000
-  hi GitGutterDelete         ctermbg=234 ctermfg=red guibg=#000000
-  hi GitGutterChangeDelete   ctermbg=234 ctermfg=magenta guibg=#000000
+  " hi SignColumn              guibg=#000000
   hi LineNr                  ctermfg=239 guifg=#222222 guibg=#000000
+  " hi ColorColumn             ctermbg=255 guibg=#2c2d27
 
-  hi DiffAdd      ctermbg=22 ctermfg=15
-  hi DiffChange   ctermbg=17 ctermfg=15
-  hi DiffText     ctermbg=21 ctermfg=15
-  hi DiffDelete   ctermbg=52 ctermfg=15
+  " hi DiffAdd      ctermbg=22 ctermfg=15 guifg=#ffffff guibg=#00ff00
+  " hi DiffAdd      guibg=#0c4532
+  " hi DiffChange   ctermbg=17 ctermfg=15
+  " hi DiffText     ctermbg=21 ctermfg=15
+  " hi DiffDelete   ctermbg=52 ctermfg=15
 
   hi Comment guifg=#555555
 
@@ -303,13 +315,15 @@ let g:ale_sign_error = '✗'
 let g:ale_linters = {
       \ 'html':        ['htmlhint', 'tidy'],
       \ 'javascript':  ['eslint', 'prettier'],
-      \ 'json':        ['eslint', 'prettier'],
+      \ 'json':        ['fixjson', 'prettier'],
+      \ 'sql':         ['pgformatter'],
+      \ 'clj':         ['joker']
       \}
 
 let g:ale_fixers               = {}
 let g:ale_fixers['javascript'] = ['prettier']
 let g:ale_fixers['typescript'] = ['prettier']
-let g:ale_fixers['json']       = ['prettier']
+let g:ale_fixers['json']       = ['fixjson', 'prettier']
 let g:ale_fixers['css']        = ['prettier']
 let g:ale_fixers['scss']       = ['prettier']
 let g:ale_fixers['ruby']       = ['rubocop']
@@ -383,3 +397,18 @@ let g:clojure_align_subforms = 1
 
 " sigh, the touchbar
 inoremap jj <esc>
+
+" https://stackoverflow.com/a/13731714
+let &colorcolumn=join(range(81,999),",")
+
+let g:UltiSnipsExpandTrigger = "<c-j>"
+let g:UltiSnipsSnippetsDir = "~/Projects/dotfiles/vim/snippets"
+let g:UltiSnipsEditSplit = "vertical"
+
+nnoremap <silent> <F3> :redir @a<CR>:g//<CR>:redir END<CR>:new<CR>:put! a<CR>
+
+let g:signify_vcs_list = [ 'git' ]
+
+let g:netrw_banner=0
+" let g:netrw_browse_split=4
+" let g:netrw_liststyle=3
