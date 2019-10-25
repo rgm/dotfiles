@@ -18,6 +18,7 @@
     ~/.lein: lein
     ~/.clojure: clojure
     ~/.config/nvim: nvim
+    ~/bin: bin
 
 - shell:
     - ln -F -s ~/.zsh/plugins/pure_prompt/pure.zsh /usr/local/share/zsh/site-functions/prompt_pure_setup
@@ -35,13 +36,16 @@
     - entr
     - fd
     - git
+    - htop
     - jenv
+    - candid82/brew/joker
     - n
     - pyenv
     - rg
     - ruby-install
     - source-highlight
     - vim
+    - wget
     - z
     - zsh
     - zsh-completions
