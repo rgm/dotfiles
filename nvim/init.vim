@@ -12,11 +12,12 @@ Plug 'dense-analysis/ale'
 Plug 'easymotion/vim-easymotion'
 " Plug 'eraserhd/parinfer-rust', {'do': 'cargo build --release'}
 Plug 'gcmt/wildfire.vim'
-Plug 'godlygeek/tabular'
+" Plug 'godlygeek/tabular'
 Plug 'guns/vim-sexp', {'for': 'clojure'}
 Plug 'jremmen/vim-ripgrep'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
+Plug 'junegunn/vim-easy-align'
 Plug 'Konfekt/FastFold'
 Plug 'luochen1990/rainbow'
 Plug 'majutsushi/tagbar'
@@ -178,3 +179,9 @@ endif
 map <F10> :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . '> trans<'
 \ . synIDattr(synID(line("."),col("."),0),"name") . "> lo<"
 \ . synIDattr(synIDtrans(synID(line("."),col("."),1)),"name") . ">"<CR>
+ 
+" https://github.com/junegunn/vim-easy-align#quick-start-guide
+" Start interactive EasyAlign in visual mode (e.g. vipga)
+xmap ga <Plug>(EasyAlign)
+" Start interactive EasyAlign for a motion/text object (e.g. gaip)
+nmap ga <Plug>(EasyAlign)
