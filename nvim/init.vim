@@ -126,7 +126,7 @@ let g:ale_linters = {
       \ 'javascript':  ['eslint', 'prettier'],
       \ 'json':        ['fixjson', 'prettier'],
       \ 'sql':         ['pgformatter'],
-      \ 'clj':         ['joker']
+      \ 'clj':         ['joker', 'clj-kondo']
       \}
 
 let g:ale_fixers = {
@@ -179,9 +179,27 @@ endif
 map <F10> :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . '> trans<'
 \ . synIDattr(synID(line("."),col("."),0),"name") . "> lo<"
 \ . synIDattr(synIDtrans(synID(line("."),col("."),1)),"name") . ">"<CR>
- 
+
 " https://github.com/junegunn/vim-easy-align#quick-start-guide
 " Start interactive EasyAlign in visual mode (e.g. vipga)
 xmap ga <Plug>(EasyAlign)
 " Start interactive EasyAlign for a motion/text object (e.g. gaip)
 nmap ga <Plug>(EasyAlign)
+
+" https://www.hillelwayne.com/post/vim-macro-trickz/
+nnoremap Q @@
+set lazyredraw
+nnoremap Y y$
+
+" grep out all the code notes like FIXME, etc
+fun! s:FIXME(txt)
+  Rg -s "\bFIXME\b\|\bTODO\b" src test
+endfun
+command! FIXME :call s:FIXME(<q-args>)
+
+"https://dmoerner.wordpress.com/2017/08/14/vimwiki-and-git-autocommit/
+let g:vimwiki_list = [{'path': '~/Documents/vimwiki/',
+                      \ 'syntax': 'markdown', 'ext': '.md'}]
+augroup vimwiki
+au! BufWritePost ~/Documents/vimwiki/* !git add "%";git commit -m "Auto commit of %:t." "%"
+augroup END
