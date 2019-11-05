@@ -14,7 +14,8 @@
  :paths ["dev" "src"]
  ;; External dependencies
  :deps #:org.clojure{clojure #:mvn{:version "1.10.1"}
-                     clojurescript #:mvn{:version "1.10.520"}}
+                     clojurescript #:mvn{:version "1.10.520"}
+                     org.clojure/core.async {:mvn/version "0.4.500"}}
  ;; Aliases
  ;;   resolve-deps aliases (-R) affect dependency resolution, options:
  ;;     :extra-deps - specifies extra deps to add to :deps
@@ -37,7 +38,8 @@
        :nrepl
        {:extra-deps {cider/cider-nrepl #:mvn{:version "RELEASE"}
                      cider/piggieback #:mvn{:version "RELEASE"}
-                     nrepl #:mvn{:version "RELEASE"}}
+                     nrepl #:mvn{:version "RELEASE"}
+                     }
         :main-opts
         ["-m" "nrepl.cmdline" "--middleware"
          "[cider.nrepl/cider-middleware,cider.piggieback/wrap-cljs-repl]"
@@ -64,6 +66,10 @@
                      org.clojure/data.csv {:mvn/version "0.1.4"}
                      org.clojure/data.json {:mvn/version "0.2.3"}
                      org.yaml/snakeyaml {:mvn/version "1.23"}
+                     cider/cider-nrepl #:mvn{:version "RELEASE"}
+                     cider/piggieback #:mvn{:version "RELEASE"}
+                     nrepl #:mvn{:version "RELEASE"}
+                     rickmoynihan/nrebl.middleware {:mvn/version "RELEASE"}
                      com.cognitect/rebl
                      ;; adjust to match your install location
                      {:local/root "/Users/rgm/Projects/forks/clojure/REBL-0.9.172/REBL-0.9.172.jar"}
@@ -74,7 +80,14 @@
                      org.openjfx/javafx-swing    {:mvn/version "11.0.1"}
                      org.openjfx/javafx-base     {:mvn/version "11.0.1"}
                      org.openjfx/javafx-web      {:mvn/version "11.0.1"}}
-        :main-opts ["-m" "cognitect.rebl"]}
+        :main-opts #_["-m" "cognitect.rebl"]
+        ["-m" "nrepl.cmdline" "--middleware"
+         "[nrebl.middleware/wrap-nrebl,cider.nrepl/cider-middleware,cider.piggieback/wrap-cljs-repl]"
+         "--interactive" "--color"]}
+
+       :new
+       {:extra-deps {seancorfield/clj-new {:mvn/version "RELEASE"}}
+        :main-opts ["-m" "clj-new.create"]}
 
        :lint
        {:extra-deps
@@ -83,4 +96,17 @@
                              "https://github.com/JamesLaverack/cljfmt-runner"
                              :sha
                              "97960e9a6464935534b5a6bab529e063d0027128"}}
-        :main-opts ["-m" "cljfmt-runner.fix"]}}}
+        :main-opts ["-m" "cljfmt-runner.fix"]}
+
+       :libs
+       {:override-deps
+        {opengb/dram {:local/root "/Users/rgm/Projects/opengb/dram"}
+         opengb/spork {:local/root "/Users/rgm/Projects/opengb/spork"}}}
+
+       :depify {:extra-deps {org.clojure/clojure {:mvn/version "1.9.0"}
+                             depify              {:git/url "https://github.com/hagmonk/depify"
+                                                  :sha     "04329744872890711dbba8939a16e9987dd33bb3"}}
+                :main-opts  ["-m" "depify.project"]}
+
+
+       }}
