@@ -49,7 +49,7 @@ eval "$(jenv init -)"
 # direnv
 eval "$(direnv hook zsh)"
 
-export EDITOR=vim
+export EDITOR=nvim
 
 # uncomment to reinstall completions
 # autoload -U compinstall
