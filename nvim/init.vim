@@ -2,17 +2,19 @@ let mapleader=" "
 let maplocalleader=","
 
 call plug#begin()
+
+" colors
 Plug 'albertorestifo/github.vim'
 Plug 'arcticicestudio/nord-vim'
+Plug 'dracula/vim', { 'as': 'dracula' }
+Plug 'pR0Ps/molokai-dark'
 
 Plug 'AndrewRadev/splitjoin.vim'
 Plug 'bling/vim-airline'
 Plug 'clojure-vim/vim-jack-in'
 Plug 'dense-analysis/ale'
 Plug 'easymotion/vim-easymotion'
-" Plug 'eraserhd/parinfer-rust', {'do': 'cargo build --release'}
 Plug 'gcmt/wildfire.vim'
-" Plug 'godlygeek/tabular'
 Plug 'guns/vim-sexp', {'for': 'clojure'}
 Plug 'jremmen/vim-ripgrep'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
@@ -25,20 +27,22 @@ Plug 'mattn/emmet-vim'
 Plug 'mhinz/vim-signify'
 Plug 'mileszs/ack.vim'
 Plug 'ntpeters/vim-better-whitespace'
-Plug 'pR0Ps/molokai-dark'
+Plug 'plasticboy/vim-markdown'
 Plug 'rizzatti/dash.vim'
+Plug 'SevereOverfl0w/vim-replant', { 'do': ':UpdateRemotePlugins' }
 Plug 'sheerun/vim-polyglot'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-dispatch'
 Plug 'tpope/vim-endwise'
 Plug 'tpope/vim-fugitive'
-Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-rails'
+Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-sensible'
 Plug 'tpope/vim-sexp-mappings-for-regular-people', {'for': 'clojure'}
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-vinegar'
 Plug 'venantius/vim-cljfmt'
+Plug 'vimwiki/vimwiki'
 
 " Plug 'Olical/conjure', { 'tag': 'v1.3.0', 'do': 'bin/compile', 'for': 'clojure', 'on': 'ConjureAdd'  }
 Plug 'tpope/vim-fireplace', { 'for': 'clojure' }
@@ -60,14 +64,16 @@ set splitbelow
 set splitright
 set tabstop=2 shiftwidth=2 softtabstop=2 expandtab
 
-let iterm_profile = $ITERM_PROFILE
-if iterm_profile == "nord"
-  colo nord
-  set termguicolors
-  hi Folded gui=NONE guifg=#D8DEE9 guibg=#434C5E
-else
-  colo github
-endif
+colo molokai-dark
+
+" let iterm_profile = $ITERM_PROFILE
+" if iterm_profile == "nord"
+"   colo nord
+"   set termguicolors
+"   hi Folded gui=NONE guifg=#D8DEE9 guibg=#434C5E
+" elseif iterm_profile == "molokai"
+"   set termguicolors
+" endif
 
 let g:ale_sign_column_always = 1
 
