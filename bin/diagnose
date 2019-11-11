@@ -5,19 +5,41 @@
 # https://blog.danslimmon.com/2019/07/15/do-nothing-scripting-the-key-to-gradual-automation/
 
 cmds = [
-  'uptime',
-  'dmesg | tail',
-  'vmstat 1',
-  'mpstat -P ALL 1',
-  'pidstat 1',
-  'iostat -xz 1',
-  'free -m',
-  'sar -n DEV 1',
-  'sar -n TCP,ETCP 1',
-  'top'
+  ['uptime',<<-TXT
+This is a quick way to view the load averages, which indicate the number of
+tasks (processes) wanting to run. On Linux systems, these numbers include
+processes wanting to run on CPU, as well as processes blocked in
+uninterruptible I/O (usually disk I/O). This gives a high level idea of
+resource load (or demand), but can’t be properly understood without other
+tools. Worth a quick look only.
+
+The three numbers are exponentially damped moving sum averages with a 1 minute,
+5 minute, and 15 minute constant. The three numbers give us some idea of how
+load is changing over time. For example, if you’ve been asked to check a
+problem server, and the 1 minute value is much lower than the 15 minute
+value, then you might have logged in too late and missed the issue.
+TXT
+],
+  ['dmesg | tail',<<TXT
+This views the last 10 system messages, if there are any. Look for errors that
+can cause performance issues.
+TXT
+  ],
+  ['vmstat 1',],
+  ['mpstat -P ALL 1',],
+  ['pidstat 1',],
+  ['iostat -xz 1',],
+  ['free -m',],
+  ['sar -n DEV 1',],
+  ['sar -n TCP,ETCP 1',],
+  ['top'],
 ]
 
-cmds.each do |c|
-  puts c
+cmds.each_with_index do |pair, i|
+  c, explanation = pair
+  `echo #{c} | pbcopy`
+  puts "#{i+1}/10: #{c}"
+  puts
+  puts explanation
   gets
 end
