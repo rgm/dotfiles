@@ -19,6 +19,7 @@
     ~/.clojure: clojure
     ~/.config/nvim: nvim
     ~/bin: bin
+    ~/.tmux.conf: tmux.conf
 
 - shell:
     - ln -F -s ~/.zsh/plugins/pure_prompt/pure.zsh /usr/local/share/zsh/site-functions/prompt_pure_setup
