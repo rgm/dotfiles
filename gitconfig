@@ -122,3 +122,4 @@
 
 [commit]
   template = /Users/rgm/.git_commit_template
+  verbose = true
