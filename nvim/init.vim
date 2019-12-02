@@ -195,10 +195,3 @@ fun! s:FIXME(txt)
   Rg -s "\bFIXME\b\|\bTODO\b" src test
 endfun
 command! FIXME :call s:FIXME(<q-args>)
-
-"https://dmoerner.wordpress.com/2017/08/14/vimwiki-and-git-autocommit/
-let g:vimwiki_list = [{'path': '~/Documents/vimwiki/',
-                      \ 'syntax': 'markdown', 'ext': '.md'}]
-augroup vimwiki
-au! BufWritePost ~/Documents/vimwiki/* !git add "%";git commit -m "Auto commit of %:t." "%"
-augroup END
