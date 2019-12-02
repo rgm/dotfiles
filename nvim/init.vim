@@ -49,7 +49,7 @@ call plug#end()
 set cursorline
 set encoding=utf-8
 set history=10000
-set hidden " switch away from unsaved buffers
+set hidden " allow switching away from unsaved buffers
 set hlsearch
 set ignorecase smartcase
 set incsearch
@@ -61,15 +61,12 @@ set splitright
 set tabstop=2 shiftwidth=2 softtabstop=2 expandtab
 
 colo molokai-dark
-
-" let iterm_profile = $ITERM_PROFILE
-" if iterm_profile == "nord"
-"   colo nord
-"   set termguicolors
-"   hi Folded gui=NONE guifg=#D8DEE9 guibg=#434C5E
-" elseif iterm_profile == "molokai"
-"   set termguicolors
-" endif
+set termguicolors
+" Nord inspired diff colouring
+hi DiffChange gui=none guifg=#cae2ff guibg=#3b4e66
+hi DiffText   gui=bold guifg=#ffffff guibg=#0072ff
+hi DiffAdd    gui=none guibg=#41592d guifg=#c5e6a9
+hi DiffDelete gui=none guibg=#663439 guifg=#e6757f
 
 let g:ale_sign_column_always = 1
 
@@ -128,7 +125,7 @@ let g:ale_linters = {
       \ 'javascript':  ['eslint', 'prettier'],
       \ 'json':        ['fixjson', 'prettier'],
       \ 'sql':         ['pgformatter'],
-      \ 'clj':         ['joker', 'clj-kondo']
+      \ 'clj':         ['clj-kondo']
       \}
 
 let g:ale_fixers = {
