@@ -107,5 +107,10 @@
                                      :sha     "04329744872890711dbba8939a16e9987dd33bb3"}}
                 :main-opts  ["-m" "depify.project"]}
 
+       :zprint {:extra-deps {zprint {:mvn/version "0.4.9"}}
+         :main-opts  ["-m" "zprint.main"]}
+
+       :graph {:deps {org.clojure/tools.deps.graph {:mvn/version "0.1.14"}}
+               :main-opts ["-m" "clojure.tools.deps.graph"]}
 
        }}
