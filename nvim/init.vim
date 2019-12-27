@@ -128,7 +128,7 @@ let g:ale_linters = {
       \ 'javascript':  ['eslint', 'prettier'],
       \ 'json':        ['fixjson', 'prettier'],
       \ 'sql':         ['pgformatter'],
-      \ 'clj':         ['clj-kondo']
+      \ 'clojure':     ['clj-kondo'],
       \}
 
 let g:ale_fixers = {
