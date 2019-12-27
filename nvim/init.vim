@@ -14,6 +14,7 @@ Plug 'easymotion/vim-easymotion'
 Plug 'gcmt/wildfire.vim'
 Plug 'guns/vim-sexp', { 'for': 'clojure' }
 Plug 'honza/vim-snippets'
+Plug 'janko/vim-test'
 Plug 'jremmen/vim-ripgrep'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
@@ -38,10 +39,12 @@ Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-projectionist'
 Plug 'tpope/vim-rails', { 'for': 'ruby' }
 Plug 'tpope/vim-repeat'
+Plug 'tpope/vim-rhubarb'
 Plug 'tpope/vim-sensible'
 Plug 'tpope/vim-sexp-mappings-for-regular-people', { 'for': 'clojure' }
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-vinegar'
+Plug 'tweekmonster/django-plus.vim'
 Plug 'venantius/vim-cljfmt', { 'for': 'clojure' }
 
 call plug#end()
