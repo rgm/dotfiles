@@ -14,8 +14,8 @@
  :paths ["dev" "src"]
  ;; External dependencies
  :deps #:org.clojure{clojure #:mvn{:version "1.10.1"}
-                     clojurescript #:mvn{:version "1.10.520"}
-                     org.clojure/core.async {:mvn/version "0.4.500"}}
+                     clojurescript #:mvn{:version "1.10.597"}
+                     org.clojure/core.async {:mvn/version "0.6.532"}}
  ;; Aliases
  ;;   resolve-deps aliases (-R) affect dependency resolution, options:
  ;;     :extra-deps - specifies extra deps to add to :deps
