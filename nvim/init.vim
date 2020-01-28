@@ -27,11 +27,13 @@ Plug 'mhinz/vim-signify'
 Plug 'neoclide/coc.nvim', { 'branch': 'release' }
 Plug 'ntpeters/vim-better-whitespace'
 " Plug 'Olical/conjure', { 'tag': 'v1.3.0', 'do': 'bin/compile', 'for': 'clojure', 'on': 'ConjureAdd'  }
+Plug 'rgm/vectorscript-vim'
 Plug 'rizzatti/dash.vim'
 Plug 'SevereOverfl0w/vim-replant', { 'for': 'clojure', 'do': ':UpdateRemotePlugins' }
 Plug 'SirVer/ultisnips'
 Plug 'sheerun/vim-polyglot'
 Plug 'tpope/vim-commentary'
+Plug 'tpope/vim-cucumber'
 Plug 'tpope/vim-dispatch'
 Plug 'tpope/vim-endwise'
 Plug 'tpope/vim-fireplace', { 'for': 'clojure' }
@@ -42,7 +44,7 @@ Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-rhubarb'
 Plug 'tpope/vim-sensible'
 Plug 'tpope/vim-sexp-mappings-for-regular-people', { 'for': 'clojure' }
-Plug 'tpope/vim-surround'
+Plug 'machakann/vim-sandwich'
 Plug 'tpope/vim-vinegar'
 Plug 'tweekmonster/django-plus.vim'
 Plug 'venantius/vim-cljfmt', { 'for': 'clojure' }
