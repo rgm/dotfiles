@@ -111,11 +111,11 @@ prompt pure
 export PATH=$HOME/bin:$PATH
 
 function dt () {
-  echo -e "\033]50;SetProfile=github\a"; export ITERM_PROFILE=light;
+  echo -e "\033]50;SetProfile=github\a"; export ITERM_PROFILE=github;
 }
 
 function nt () {
-  echo -e "\033]50;SetProfile=nord\a"; export ITERM_PROFILE=dark;
+  echo -e "\033]50;SetProfile=molokai\a"; export ITERM_PROFILE=molokai;
 }
 
 function sl () {
