@@ -106,7 +106,6 @@ zz() {
 . $HOME/.zsh/plugins/bd/bd.zsh
 
 autoload -U promptinit; promptinit
-prompt pure
 
 export PATH=$HOME/bin:$PATH
 
@@ -141,3 +140,8 @@ export FZF_ALT_C_COMMAND="fd --type d . ~/Projects"
 
 eval "$(pyenv init -)"
 eval "$($HOME/Projects/tiny/tentacles/tnt/bin/tnt init -)"
+
+autoload zmv
+source ~/.powerlevel10k/powerlevel10k.zsh-theme
+
+# vi:ft=zsh

@@ -2,8 +2,12 @@
     link:
       relink: true
 
+- brew:
+  - git
+
 - shell:
-    - mkdir -p ~/.config
+  - mkdir -p ~/.config
+  - git clone https://github.com/romkatv/powerlevel10k
 
 - link:
     ~/.ctags: ctags
@@ -19,6 +23,7 @@
     ~/.config/nvim: nvim
     ~/bin: bin
     ~/.tmux.conf: tmux.conf
+    ~/.powerlevel10k: powerlevel10k
 
 - shell:
     - ln -F -s ~/.zsh/plugins/pure_prompt/pure.zsh /usr/local/share/zsh/site-functions/prompt_pure_setup
