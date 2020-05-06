@@ -26,17 +26,14 @@ Plug 'mattn/emmet-vim'
 Plug 'mhinz/vim-signify'
 Plug 'neoclide/coc.nvim', { 'branch': 'release' }
 Plug 'ntpeters/vim-better-whitespace'
-" Plug 'Olical/conjure', { 'tag': 'v1.3.0', 'do': 'bin/compile', 'for': 'clojure', 'on': 'ConjureAdd'  }
 Plug 'rgm/vectorscript-vim'
 Plug 'rizzatti/dash.vim'
-Plug 'SevereOverfl0w/vim-replant', { 'for': 'clojure', 'do': ':UpdateRemotePlugins' }
 Plug 'SirVer/ultisnips'
 Plug 'sheerun/vim-polyglot'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-cucumber'
 Plug 'tpope/vim-dispatch'
 Plug 'tpope/vim-endwise'
-Plug 'tpope/vim-fireplace', { 'for': 'clojure' }
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-projectionist'
 Plug 'tpope/vim-rails', { 'for': 'ruby' }
@@ -47,7 +44,11 @@ Plug 'tpope/vim-sexp-mappings-for-regular-people', { 'for': 'clojure' }
 Plug 'machakann/vim-sandwich'
 Plug 'tpope/vim-vinegar'
 Plug 'tweekmonster/django-plus.vim'
+
 Plug 'venantius/vim-cljfmt', { 'for': 'clojure' }
+Plug 'tpope/vim-fireplace', { 'for': 'clojure' }
+Plug 'SevereOverfl0w/vim-replant', { 'for': 'clojure', 'do': ':UpdateRemotePlugins' }
+Plug 'Olical/conjure', { 'for': 'clojure', 'branch': 'develop' }
 
 call plug#end()
 
