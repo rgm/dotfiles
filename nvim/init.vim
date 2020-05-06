@@ -66,13 +66,25 @@ set splitbelow
 set splitright
 set tabstop=2 shiftwidth=2 softtabstop=2 expandtab
 
-colo molokai-dark
+" color switch on iterm profile
+let iterm_profile = $ITERM_PROFILE
+if iterm_profile == "github"
+  colo github
+  " hi DiffChange gui=none guifg=#cae2ff guibg=#3b4e66
+  " hi DiffText   gui=bold guifg=#ffffff guibg=#0072ff
+  hi DiffAdd    gui=none guibg=#e6ffed
+  hi DiffDelete gui=none guibg=#ffeef0
+  " hi Keyword    gui=none guifg=#dddddd
+else
+  colo molokai-dark
+  " Nord inspired diff colouring
+  hi DiffChange gui=none guifg=#cae2ff guibg=#3b4e66
+  hi DiffText   gui=bold guifg=#ffffff guibg=#0072ff
+  hi DiffAdd    gui=none guibg=#41592d guifg=#c5e6a9
+  hi DiffDelete gui=none guibg=#663439 guifg=#e6757f
+  hi Keyword    gui=none guifg=#dddddd
+endif
 set termguicolors
-" Nord inspired diff colouring
-hi DiffChange gui=none guifg=#cae2ff guibg=#3b4e66
-hi DiffText   gui=bold guifg=#ffffff guibg=#0072ff
-hi DiffAdd    gui=none guibg=#41592d guifg=#c5e6a9
-hi DiffDelete gui=none guibg=#663439 guifg=#e6757f
 
 let g:ale_sign_column_always = 1
 
