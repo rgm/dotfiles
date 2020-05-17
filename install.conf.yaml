@@ -15,7 +15,8 @@
     ~/.vimrc: vimrc
     ~/.emacs: emacs
     ~/.zprofile: zprofile
-    ~/.zsh: zsh
+    ~/.zshrc: zshrc
+    ~/.zshenv: zshenv
     ~/.gitconfig: gitconfig
     ~/.git_commit_template: git_commit_template
     ~/.lein: lein
