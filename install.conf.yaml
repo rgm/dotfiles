@@ -8,6 +8,7 @@
 - shell:
   - mkdir -p ~/.config
   - git clone https://github.com/romkatv/powerlevel10k
+  - git clone https://github.com/zsh-users/zsh-autosuggestions zsh/zsh-autosuggestions
 
 - link:
     ~/.ctags: ctags
