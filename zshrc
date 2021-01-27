@@ -60,6 +60,13 @@ alias ll="ls -la"
 alias em="emacsclient"
 alias t="tree -I node_modules"
 alias cloc=tokei
+alias grcd='cd $(git root)'
+
+gfu() {
+  git commit --amend --no-edit
+}
+alias gwip='git add -A; git rm $(git ls-files --deleted) 2> /dev/null; git commit --no-verify --no-gpg-sign -m "--wip-- [skip ci]"'
+alias gunwip='git log -n 1 | grep -q -c "\-\-wip\-\-" && git reset HEAD~1'
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
