@@ -4,9 +4,13 @@
 if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
+typeset -g POWERLEVEL9K_INSTANT_PROMPT=quiet
 
 autoload zmv
 source ~/.powerlevel10k/powerlevel10k.zsh-theme
+
+# direnv
+eval "$(direnv hook zsh)"
 
 # jenv
 eval "$(jenv init -)"
@@ -16,8 +20,6 @@ source /usr/local/opt/chruby/share/chruby/chruby.sh
 source /usr/local/share/chruby/auto.sh
 chruby 2.6
 
-# direnv
-eval "$(direnv hook zsh)"
 
 # n - node changer-upper
 export N_PREFIX=$HOME/.nodes
@@ -32,8 +34,8 @@ zle -N edit-command-line
 bindkey "^X^E" edit-command-line
 bindkey "^XE" edit-command-line
 # bindkey -M vicmd v edit-command-line
-
-bindkey -e
+bindkey -v # vi keybindings
+# bindkey -e # emacs keybindings
 
 
 # uncomment to reinstall completions
