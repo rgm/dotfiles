@@ -2,9 +2,9 @@ call plug#begin()
 
 " Plug 'Olical/aniseed', { 'tag': 'v3.21.0' }
 Plug 'Olical/conjure', { 'for': 'clojure' }
-Plug 'alok/notational-fzf-vim'
+" Plug 'alok/notational-fzf-vim'
 Plug 'bling/vim-airline'
-Plug 'cweagans/vim-taskpaper'
+" Plug 'cweagans/vim-taskpaper'
 Plug 'dense-analysis/ale'
 Plug 'easymotion/vim-easymotion'
 Plug 'file:///Users/rgm/Projects/foss/alabaster-vim'
@@ -12,8 +12,8 @@ Plug 'gcmt/wildfire.vim'
 Plug 'guns/vim-sexp', { 'for': 'clojure' }
 Plug 'janko/vim-test'
 Plug 'junegunn/vim-easy-align'
-Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
-Plug 'junegunn/fzf.vim'
+" Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+" Plug 'junegunn/fzf.vim'
 Plug 'kshenoy/vim-signature'
 Plug 'mattn/emmet-vim'
 Plug 'mbbill/undotree'
@@ -82,11 +82,18 @@ require'lspconfig'.clojure_lsp.setup{}
 EOF
 
 lua << EOF
+local actions = require("telescope.actions")
 require('telescope').setup{
   defaults = {
     -- Default configuration for telescope goes here:
     -- config_key = value,
     -- ..
+    color_devicons = true,
+    mappings = {
+          i = {
+                ["<C-q>"] = actions.smart_send_to_qflist,
+          },
+    }
   },
   pickers = {
     -- Default configuration for builtin pickers goes here:

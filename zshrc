@@ -61,6 +61,9 @@ alias em="emacsclient"
 alias t="tree -I node_modules"
 alias cloc=tokei
 alias grcd='cd $(git root)'
+alias G="git"
+alias e="nvim"
+alias v="nvim -R"
 
 gfu() {
   git commit --amend --no-edit

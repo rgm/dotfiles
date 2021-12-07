@@ -30,6 +30,6 @@ nnoremap <silent> <Leader>gp  :Git push<cr>
 nnoremap <silent> <Leader>gs  :Git status<cr>
 
 " fuzzy finding
-nnoremap <leader>ff <cmd>Telescope find_files<cr>
+nnoremap <leader>ff <cmd>Telescope git_files<cr>
 nnoremap <leader>bb <cmd>Telescope buffers<cr>
 nnoremap <Leader>rg <cmd>Telescope grep_string<cr>
