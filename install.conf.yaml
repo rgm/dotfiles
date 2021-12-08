@@ -31,9 +31,6 @@
     - ln -F -s ~/.zsh/plugins/pure_prompt/pure.zsh /usr/local/share/zsh/site-functions/prompt_pure_setup
     - ln -F -s ~/.zsh/plugins/pure_prompt/async.zsh /usr/local/share/zsh/site-functions/async
 
-- cask:
-    - adoptopenjdk
-
 - brew:
     - chruby
     - clojure
@@ -45,7 +42,6 @@
     - git
     - htop
     - jenv
-    - candid82/brew/joker
     - n
     - pyenv
     - rg
