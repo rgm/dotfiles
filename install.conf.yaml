@@ -12,8 +12,6 @@
 
 - link:
     ~/.ctags: ctags
-    ~/.vim: vim
-    ~/.vimrc: vimrc
     ~/.emacs: emacs
     ~/.zprofile: zprofile
     ~/.zshrc: zshrc
@@ -26,6 +24,7 @@
     ~/bin: bin
     ~/.tmux.conf: tmux.conf
     ~/.powerlevel10k: powerlevel10k
+    ~/.zsh: zsh
 
 - shell:
     - ln -F -s ~/.zsh/plugins/pure_prompt/pure.zsh /usr/local/share/zsh/site-functions/prompt_pure_setup
@@ -37,8 +36,10 @@
     - coreutils
     - ctags
     - direnv
+    - pyenv
     - entr
     - fd
+    - fzf
     - git
     - htop
     - jenv

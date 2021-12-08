@@ -20,6 +20,5 @@ setopt SHARE_HISTORY             # Share history between all sessions.
 
 export PYENV_ROOT="$HOME/.pyenv"
 export PATH="$PYENV_ROOT/bin:$PATH"
-eval "$(pyenv init --path)"
 
 # vi:ft=zsh

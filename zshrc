@@ -6,6 +6,8 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
 fi
 typeset -g POWERLEVEL9K_INSTANT_PROMPT=quiet
 
+eval "$(/opt/homebrew/bin/brew shellenv)"
+
 autoload zmv
 source ~/.powerlevel10k/powerlevel10k.zsh-theme
 
@@ -16,9 +18,9 @@ eval "$(direnv hook zsh)"
 eval "$(jenv init --no-rehash -)"
 
 # chruby
-source /usr/local/opt/chruby/share/chruby/chruby.sh
-source /usr/local/share/chruby/auto.sh
-chruby 2.6
+# source /usr/local/opt/chruby/share/chruby/chruby.sh
+# source /usr/local/share/chruby/auto.sh
+# chruby 2.6
 
 
 # n - node changer-upper
@@ -109,8 +111,8 @@ eval "$(pyenv init -)"
 
 # basecamp/sub-like stuff
 
-eval "$($HOME/Projects/tiny/tentacles/tnt/bin/tnt init -)"
-eval "$($HOME/bin/tome init fluid ~/Projects/human-studio/repos/fluid/scripts $0)"
+# eval "$($HOME/Projects/tiny/tentacles/tnt/bin/tnt init -)"
+# eval "$($HOME/bin/tome init fluid ~/Projects/human-studio/repos/fluid/scripts $0)"
 
 autoload -U promptinit; promptinit
 
@@ -120,7 +122,7 @@ complete -o nospace -C /Users/rgm/bin/vault vault
 
 # z autojumpishness
 # see https://github.com/junegunn/fzf/wiki/Examples#z
-[ -f /usr/local/etc/profile.d/z.sh ] && . /usr/local/etc/profile.d/z.sh
+[ -f $HOME/Projects/dotfiles/z.sh ] && . $HOME/Projects/dotfiles/z.sh
 unalias z
 z() {
   if [[ -z "$*" ]]; then
@@ -135,12 +137,15 @@ zz() {
   cd "$(_z -l 2>&1 | sed 's/^[0-9,.]* *//' | fzf -q "$_last_z_args")"
 }
 
+
+eval "$(pyenv init --path)"
+
 # fish-like autosuggest
 # https://github.com/zsh-users/zsh-autosuggestions
 # source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
 # export ZSH_AUTOSUGGEST_USE_ASYNC=1
 
-# vi:ft=zsh
-
 # heroku autocomplete setup
 HEROKU_AC_ZSH_SETUP_PATH=/Users/rgm/Library/Caches/heroku/autocomplete/zsh_setup && test -f $HEROKU_AC_ZSH_SETUP_PATH && source $HEROKU_AC_ZSH_SETUP_PATH;
+
+# vi:ft=zsh
