@@ -1,4 +1,4 @@
-# HISTFILE=~/.zhistory
+HISTFILE=~/.zhistory
 HISTSIZE=10000000
 SAVEHIST=10000000
 
@@ -15,6 +15,11 @@ setopt HIST_REDUCE_BLANKS        # Remove superfluous blanks before recording en
 setopt HIST_SAVE_NO_DUPS         # Don't write duplicate entries in the history file.
 setopt HIST_VERIFY               # Don't execute immediately upon history expansion.
 setopt INC_APPEND_HISTORY        # Write to the history file immediately, not when the shell exits.
+setopt INC_APPEND_HISTORY_TIME   # Write to the history file immediately, not when the shell exits.
 setopt SHARE_HISTORY             # Share history between all sessions.
+
+export PYENV_ROOT="$HOME/.pyenv"
+export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init --path)"
 
 # vi:ft=zsh

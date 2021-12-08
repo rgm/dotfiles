@@ -13,7 +13,7 @@ source ~/.powerlevel10k/powerlevel10k.zsh-theme
 eval "$(direnv hook zsh)"
 
 # jenv
-eval "$(jenv init -)"
+eval "$(jenv init --no-rehash -)"
 
 # chruby
 source /usr/local/opt/chruby/share/chruby/chruby.sh
@@ -61,9 +61,11 @@ alias em="emacsclient"
 alias t="tree -I node_modules"
 alias cloc=tokei
 alias grcd='cd $(git root)'
+alias csv=mlr
 alias G="git"
 alias e="nvim"
 alias v="nvim -R"
+
 
 gfu() {
   git commit --amend --no-edit
@@ -94,7 +96,9 @@ function sd () {
 
 . $HOME/.zsh/plugins/bd/bd.zsh
 
-# eval $(op signin my)
+1password() {
+  eval $(op signin opengb)
+}
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
@@ -102,8 +106,11 @@ export FZF_DEFAULT_COMMAND="fd --type f --hidden --exclude node_modules --exclud
 export FZF_ALT_C_COMMAND="fd --type d . ~/Projects"
 
 eval "$(pyenv init -)"
-eval "$($HOME/Projects/tiny/tentacles/tnt/bin/tnt init -)"
 
+# basecamp/sub-like stuff
+
+eval "$($HOME/Projects/tiny/tentacles/tnt/bin/tnt init -)"
+eval "$($HOME/bin/tome init fluid ~/Projects/human-studio/repos/fluid/scripts $0)"
 
 autoload -U promptinit; promptinit
 
@@ -130,7 +137,10 @@ zz() {
 
 # fish-like autosuggest
 # https://github.com/zsh-users/zsh-autosuggestions
-source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
-export ZSH_AUTOSUGGEST_USE_ASYNC=1
+# source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
+# export ZSH_AUTOSUGGEST_USE_ASYNC=1
 
 # vi:ft=zsh
+
+# heroku autocomplete setup
+HEROKU_AC_ZSH_SETUP_PATH=/Users/rgm/Library/Caches/heroku/autocomplete/zsh_setup && test -f $HEROKU_AC_ZSH_SETUP_PATH && source $HEROKU_AC_ZSH_SETUP_PATH;

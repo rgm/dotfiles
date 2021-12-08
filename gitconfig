@@ -12,6 +12,7 @@
   autocrlf     = input
   quotepath    = false
   excludesfile = /Users/rgm/.gitignore
+  attributesfile = /Users/rgm/.gitattributes
 
 [log]
   abbrevcommit = true
@@ -93,7 +94,7 @@
 
 [merge]
 	tool = vimdiff
-  conflictStyle = diff3
+	conflictStyle = diff3
 
 [push]
   default       = upstream
@@ -121,12 +122,15 @@
   smudge   = git hawser smudge %f
   required = true
 
-[filter "lfs"]
-  clean = git-lfs clean -- %f
-  smudge = git-lfs smudge -- %f
-  required = true
-  process = git-lfs filter-process
-
 [commit]
   template = /Users/rgm/.git_commit_template
   verbose = true
+
+[diff "clojure"]
+	xfuncname = (^\\(.*|\\s*\\(defn.*)
+
+[filter "lfs"]
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true
+	clean = git-lfs clean -- %f
